@@ -6,8 +6,28 @@ $fourth: #397329;
 $fifth: #2D401A; 
 $white: white;
 
+
+
 .left-content{
-    height: 700px;
     background-color: $first;
     color: $white;
+    height: 100vh;
+    position: fixed;
+    padding: 20px;
+
+    .left-content-footer {
+        position: fixed;
+        background-color: red;
+        margin: 0px auto;
+        bottom: 0;
+    }
+    .left-content-footer>ul{
+        list-style: none;
+    }
+}
+
+.right-content-menu {
+    position: sticky;
+    padding: 0 30px 30px 30px;
+    background-color: $first;
 }
