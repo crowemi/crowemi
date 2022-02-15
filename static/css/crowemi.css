@@ -1,0 +1,49 @@
+.main-container {
+  height: 100vh;
+}
+.nav-container {
+  background-color: #f2f2f2;
+  height: 10%; 
+  margin: 0px auto;
+}
+
+.top-container {
+  background-color:#111E6C;
+  margin: 0px auto;
+  height: 80%;
+  color: #f2f2f2;
+}
+.bottom-container {
+  background-color: #f2f2f2;
+  height: 20%
+}
+
+.title {
+  text-align: right;
+}
+.title-underline {
+  text-decoration-style: underline;
+  border-bottom: 1px dotted;
+}
+.icon-container {
+  padding: 10px;
+}
+.icon-container a {
+      color: #111E6C;
+}
+.icon-container a:hover{
+      color: #2039CC
+}
+.icon-container .icon{
+      padding: 5px;
+}
+
+.center {
+  margin: auto;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
