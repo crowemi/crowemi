@@ -10,12 +10,24 @@
 .top-container {
   background-color:#111E6C;
   margin: 0px auto;
-  height: 80%;
+  min-height: 60%;
   color: #f2f2f2;
+}
+.middle-container {
+  background-color: #00acee;
+  min-height: 20%;
+}
+
+.middle-content-container {
+  padding: 50px;
+  color: #f2f2f2;
+}
+.middle-container a {
+  color: #f2f2f2
 }
 .bottom-container {
   background-color: #f2f2f2;
-  height: 20%
+  min-height: 20%
 }
 
 .title {
@@ -25,6 +37,8 @@
   text-decoration-style: underline;
   border-bottom: 1px dotted;
 }
+
+
 .icon-container {
   padding: 10px;
 }
@@ -36,6 +50,12 @@
 }
 .icon-container .icon{
       padding: 5px;
+}
+.fa-twitter-custom {
+  color: #fff;
+}
+.fa-strava-custom {
+  color: #fc4c02;
 }
 
 .center {
