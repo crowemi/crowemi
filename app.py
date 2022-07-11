@@ -9,6 +9,10 @@ app = Flask(__name__)
 def index():
     return render_template("base.html", latest_tweet=get_latest_tweet())
 
+@app.route("/health")
+def health():
+    return "true"
+
 def get_latest_tweet(twitter_username: str = 'therealcrowemi'):
     # TODO: add checks for env var
     twitter_bearer = os.getenv('twitter_bearer')
