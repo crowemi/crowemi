@@ -2,3 +2,4 @@
 .venv/
 .vscode/
 pytest.ini
+__pycache__/
