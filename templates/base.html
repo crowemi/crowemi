@@ -17,7 +17,7 @@
   <body>
     <div class="main-container">
         <div class="top-container container-fluid center">
-              <div class="col-sm-6 title">
+              <div class="col-sm-6 title d-none d-lg-block">
                 <div>
                     <h1><span class="title-underline">Data Engineer</span> by day.</h1>
                     <h1><span class="title-underline">Full Stack Engineer</span> by night.</h1>
@@ -35,11 +35,31 @@
             <div class="col-12">
               <div class="row middle-content-container">
                 <div class="col-1"></div>
-                <div class="col-3 center">
+                <div class="col-2 center">
                   <a href="https://twitter.com/therealcrowemi" target="_new"><i class="fab fa-twitter fa-3x fa-twitter-custom"></i></a>
                 </div>
-                <div class="col-7">
-                  <a href="https://twitter.com/therealcrowemi/status/{{latest_tweet.id}}" target="_new">{{ latest_tweet.text }}</a>
+                <div class="col-8">
+                  <a href="https://twitter.com/therealcrowemi/status/{{latest_tweet.id}}" target="_new">
+                    
+                    <div class="row">
+                    {% if latest_tweet.media_url %}
+                      <div class="col-4">
+                        <img src="{{latest_tweet.media_url}}" class="img-fluid rounded" />
+                      </div>
+                      <div class="col-8">
+                        <div class="col-12">{{latest_tweet.text}}</div>
+                        <hr />
+                        <div class="col-12"><small>@TheRealCrowemi - {{latest_tweet.posted_at}}</small></div>
+                      </div>
+                    {% else %}
+                    <div class="col-12">
+                      <div class="col-12">{{latest_tweet.text}}</div>
+                      <hr />
+                      <div class="col-12"><small>@TheRealCrowemi - {{latest_tweet.posted_at}}</small></div>
+                    </div>
+                    {% endif %}
+                    </div>
+                  </a>
                 </div>
                 <div class="col-1"></div>
               </div>
