@@ -33,23 +33,54 @@
         <div class="middle-container contrainer-fluid">
           <div class="row">
             <div class="col-12">
-              <div class="row middle-content-container">
-                <div class="col-1"></div>
-                <div class="col-2 center">
-                  <a href="https://twitter.com/therealcrowemi" target="_new"><i class="fab fa-twitter fa-3x fa-twitter-custom"></i></a>
-                </div>
-                <div class="col-8">
-                  <a class="tweet-link" href="https://twitter.com/therealcrowemi/status/{{latest_tweet.id}}" target="_new">
-                    
-                    <div class="row">
-                    {% if latest_tweet.media_url %}
-                      <div class="col-4">
-                        <img src="{{latest_tweet.media_url}}" class="img-fluid rounded" />
-                      </div>
-                      <div class="col-8">
+              <!-- web -->
+              <div class="middle-content-container d-none d-sm-block">
+                <div class="row">
+                  <div class="col-2 center">
+                    <a href="https://twitter.com/therealcrowemi" target="_new"><i class="fab fa-twitter fa-3x fa-twitter-custom"></i></a>
+                  </div>
+                  <div class="col-10">
+                    <a class="tweet-link" href="https://twitter.com/therealcrowemi/status/{{latest_tweet.id}}" target="_new">
+                      
+                      <div class="row">
+                      {% if latest_tweet.media_url %}
+                        <div class="col-4">
+                          <img src="{{latest_tweet.media_url}}" class="img-fluid rounded" />
+                        </div>
+                        <div class="col-8">
+                          <div class="col-12">{{latest_tweet.text}}</div>
+                          <hr />
+                          <div class="col-12"><small>@TheRealCrowemi - {{latest_tweet.posted_at}}</small></div>
+                        </div>
+                      {% else %}
+                      <div class="col-12">
                         <div class="col-12">{{latest_tweet.text}}</div>
                         <hr />
                         <div class="col-12"><small>@TheRealCrowemi - {{latest_tweet.posted_at}}</small></div>
+                      </div>
+                      {% endif %}
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- mobile -->
+              <div class="row middle-content-container d-sm-none">
+                <div class="col-12">
+                  <a class="tweet-link" href="https://twitter.com/therealcrowemi/status/{{latest_tweet.id}}" target="_new">
+                    
+                    <div class="row">
+                      <div class="col-12 center">
+                        <a href="https://twitter.com/therealcrowemi" target="_new"><i class="fab fa-twitter fa-3x fa-twitter-custom"></i></a>
+                      </div>
+                      {% if latest_tweet.media_url %}
+                      <div class="col-12">
+                        <div class="col-12" style="padding:20px 20px 10px 20px">{{latest_tweet.text}}</div>
+                        <div class="col-12" style="padding:10px 20px 20px 20px">
+                          <img src="{{latest_tweet.media_url}}" class="img-fluid rounded" />
+                        </div>
+                        <hr />
+                        <div class="col-12 center"><small>@TheRealCrowemi - {{latest_tweet.posted_at}}</small></div>
                       </div>
                     {% else %}
                     <div class="col-12">
@@ -61,21 +92,8 @@
                     </div>
                   </a>
                 </div>
-                <div class="col-1"></div>
               </div>
             </div>
-            <!-- <div class="col-4">
-              <div class="row middle-content-container">
-                <div class="col-12">
-                  <a href="https://www.strava.com/athletes/crowemi" target="_new"><i class="fab fa-strava fa-3x fa-strava-custom"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="row middle-content-container">
-                right
-              </div>
-            </div> -->
         </div>
         </div>
         <div class="bottom-container container-fluid center">
