@@ -37,7 +37,7 @@ def get_latest_tweet(twitter_username: str = 'therealcrowemi') -> list:
                     "text": data.get('text'),
                     "posted_at": posted_at
                 }
-                if data['attachments']:
+                if 'attachments' in data:
                     media_id = data['attachments']['media_keys'][0]
                     for media in includes_media: 
                         if media.get('media_key') == media_id:
