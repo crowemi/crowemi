@@ -10,6 +10,7 @@ Flask = "~2.0.0"
 requests = "^2.28.1"
 pytest = "^7.1.2"
 pytest-env = "^0.6.2"
+web3 = {extras = ["tester"], version = "^5.30.0"}
 
 [tool.poetry.dev-dependencies]
 
