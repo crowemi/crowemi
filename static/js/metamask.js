@@ -1,12 +1,9 @@
-
-
-
+const web3 = null
 const mmSuccessfulLogin = (mmAccountId) => {
     console.debug(`MetaMask Successful Login for ${mmAccountId}`)
     console.debug(window.ethereum)
-    // TODO: remove buttons
     document.getElementById("metamask-button-container").remove()
-    // TODO: update welcome message
+    document.getElementById("metamask-text-container").innerHTML = `<div class="small">Connected wallet: ${mmAccountId}</div>`
 }
 const mmFailedLogin = () => {
     // TODO: what happens when connection fails
@@ -20,13 +17,19 @@ mmConnectObj.addEventListener('click', () => {
 });
 
 if (typeof window.ethereum !== 'undefined' && window.ethereum.isMetaMask) {
-    console.debug(window.ethereum)
-    const mmToast = new bootstrap.Toast(document.getElementById('metamask-toast'))
-    if (window.ethereum.selectedAddress !== 'undefined') {
-        console.debug('Already logged in.')
-        console.debug(window.ethereum.selectedAddress)
-        mmSuccessfulLogin(window.ethereum.selectedAddress)
-        mmToast.show()
-    }
+    console.debug(window.ethereum);
+
+    const mmToast = new bootstrap.Toast(document.getElementById('metamask-toast'));
+    const web3 = new Web3(window.ethereum);
+
+    web3.eth.getAccounts().then((accounts) => {
+        if (accounts[0] != null) {
+            console.debug('Already logged in.')
+            console.debug(window.ethereum.selectedAddress)
+            mmSuccessfulLogin(window.ethereum.selectedAddress)
+            mmToast.show()
+        }
+    });
+
     mmToast.show()
 }
