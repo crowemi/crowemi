@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 .main-container {
   height: 100vh;
 }
