@@ -65,6 +65,36 @@
                   </div>
                 </div>
               </div>
+              <div class="middle-content-container d-none d-sm-block">
+                <div class="row">
+                  <div class="col-2 center">
+                    <a href="https://www.strava.com/athletes/crowemi" target="_new"><i class="fab fa-strava fa-3x"></i></a>
+                  </div>
+                  <div class="col-10">
+                    <a class="tweet-link" href="https://twitter.com/therealcrowemi/status/{{latest_tweet.id}}" target="_new">
+                      
+                      <div class="row">
+                      {% if latest_tweet.media_url %}
+                        <div class="col-4">
+                          <img src="{{latest_tweet.media_url}}" class="img-fluid rounded" />
+                        </div>
+                        <div class="col-8">
+                          <div class="col-12">{{latest_tweet.text}}</div>
+                          <hr />
+                          <div class="col-12"><small>@TheRealCrowemi - {{latest_tweet.posted_at}}</small></div>
+                        </div>
+                      {% else %}
+                      <div class="col-12">
+                        <div class="col-12">{{latest_tweet.text}}</div>
+                        <hr />
+                        <div class="col-12"><small>@TheRealCrowemi - {{latest_tweet.posted_at}}</small></div>
+                      </div>
+                      {% endif %}
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
               <!-- mobile -->
               <div class="row middle-content-container d-sm-none">
                 <div class="col-12">

@@ -3,11 +3,12 @@ import json
 import requests
 from datetime import datetime
 
-def get_latest_tweet(twitter_username: str = 'therealcrowemi') -> list:
+TWITTER_BEARER = os.getenv('twitter_bearer')
+
+def get_latest_tweet(twitter_username: str = 'therealcrowemi', twitter_bearer: str = TWITTER_BEARER) -> list:
     # TODO: add checks for env var
     # TODO: breakout api calls and object creation
     ret = list()
-    twitter_bearer = os.getenv('twitter_bearer')
     ret = None
     if twitter_bearer:
         headers = {'Authorization': f'Bearer {twitter_bearer}'}
