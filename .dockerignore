@@ -3,3 +3,5 @@
 .vscode/
 pytest.ini
 tests/
+.github/
+.git/
