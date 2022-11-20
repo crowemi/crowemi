@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-EXPOSE 5050
+EXPOSE 8080
 
 RUN apt update
 RUN apt install --no-install-recommends -y -q python3-pip python3-dev build-essential libssl-dev libffi-dev python3-setuptools nano systemctl nginx
