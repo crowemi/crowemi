@@ -13,9 +13,12 @@ COPY . .
 RUN python3 -m pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-COPY crowemi.service /etc/systemd/system/
-COPY crowemi.conf /etc/nginx/sites-available/
+# configure uwsgi services
+COPY service/crowemi.service /etc/systemd/system/
+COPY service/blog.service /etc/systemd/system/
 
+# configure nginx
+COPY conf/crowemi.conf /etc/nginx/sites-available/
 RUN ln -s /etc/nginx/sites-available/crowemi.conf /etc/nginx/sites-enabled/
 RUN unlink /etc/nginx/sites-enabled/default
 RUN systemctl restart nginx

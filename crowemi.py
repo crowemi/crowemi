@@ -9,10 +9,15 @@ crowemi = Flask(__name__)
 def index():
     return render_template("base.html", latest_tweet=get_latest_tweet())
 
+@crowemi.route("/", subdomain="blog")
+def blog():
+    return "blog.crowemi.com"
+
 @crowemi.route("/health")
 def health():
     return "true"
 
 
 if __name__ == "__main__":
-    crowemi.run(host="localhost", port=8080, debug=True)
+    crowemi.config["SERVER_NAME"] = 'crowemi'
+    crowemi.run(debug=True)

@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve blog.crowemi
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+
+WorkingDirectory=/app/blog
+ExecStart=/usr/local/bin/uwsgi --ini blog.ini
+
+[Install]
+WantedBy=multi-user.target
