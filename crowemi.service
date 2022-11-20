@@ -1,12 +1,13 @@
 [Unit]
-Description= A Flask application run with Gunicorn.
-After= network.target
- 
+Description=uWSGI instance to serve crowemi
+After=network.target
+
 [Service]
-User=www-data
+User=root
 Group=www-data
-WorkingDirectory=/app/
-ExecStart=gunicorn --workers 3 --bind unix:/app/crowemi.sock wsgi:crowemi
- 
+
+WorkingDirectory=/app
+ExecStart=/usr/local/bin/uwsgi --ini crowemi.ini
+
 [Install]
 WantedBy=multi-user.target
