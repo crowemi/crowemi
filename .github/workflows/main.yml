@@ -55,7 +55,7 @@ jobs:
       - name: Deploy LightSail
         run: |
           aws lightsail create-container-service-deployment \
-            --service-name crowemi \
+            --service-name crowemi-01 \
             --containers "{
               \"crowemi\": {
                 \"image\": \"926488920335.dkr.ecr.us-west-2.amazonaws.com/crowemi:latest\",
