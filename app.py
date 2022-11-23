@@ -15,5 +15,6 @@ app.register_blueprint(blog, subdomain="blog")
 
 
 if __name__ == "__main__":
-    app.config["SERVER_NAME"] = 'crowemi.com'
-    app.run(debug=True)
+    # app.config["SERVER_NAME"] = 'crowemi'
+    app.config["SERVER_NAME"] = 'crowemi.com:8080'
+    app.run(host='crowemi.com', debug=True)
