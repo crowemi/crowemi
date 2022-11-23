@@ -1,4 +1,4 @@
-from crowemi import crowemi
+from app import app
 
 if __name__ == "__main__":
-    crowemi.run()
+    app.run()
