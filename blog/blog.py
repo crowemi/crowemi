@@ -1,16 +1,8 @@
-from flask import Flask
+import os
+from flask import Blueprint, render_template
 
-blog = Flask(__name__)
+blog = Blueprint("blog", __name__, subdomain="blog")
 
-@blog.route("/")
+@blog.route("/", subdomain='blog')
 def index():
-    return "Welcome to the crowemi blog!"
-
-@blog.route("/health")
-def health():
-    return "true"
-
-
-if __name__ == "__main__":
-    blog.config["SERVER_NAME"] = 'blog.crowemi'
-    blog.run(debug=True)
+    return "Hello World! From Blog."

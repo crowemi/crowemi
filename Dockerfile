@@ -15,7 +15,6 @@ RUN pip install -r requirements.txt
 
 # configure uwsgi services
 COPY service/crowemi.service /etc/systemd/system/
-COPY service/blog.service /etc/systemd/system/
 
 # configure nginx
 COPY conf/crowemi.conf /etc/nginx/sites-available/
@@ -26,4 +25,4 @@ RUN systemctl restart nginx
 RUN chown -R root /app
 
 # # Specify the command to run on container start
-CMD [ "sh", "./start.sh" ]
+CMD [ "python3", "./start.py" ]

@@ -5,18 +5,20 @@ body {
 .main-container {
   height: 100vh;
 }
+
 .nav-container {
   background-color: #f2f2f2;
-  height: 10%; 
+  height: 10%;
   margin: 0px auto;
 }
 
 .top-container {
-  background-color:#111E6C;
+  background-color: #111E6C;
   margin: 0px auto;
   min-height: 60%;
   color: #f2f2f2;
 }
+
 .middle-container {
   background-color: #00acee;
   min-height: 20%;
@@ -26,10 +28,12 @@ body {
   padding: 50px;
   color: #f2f2f2;
 }
+
 .middle-container a {
   color: #f2f2f2;
   text-decoration: none;
 }
+
 .bottom-container {
   background-color: #f2f2f2;
   min-height: 20%
@@ -38,6 +42,7 @@ body {
 .title {
   text-align: right;
 }
+
 .title-underline {
   text-decoration-style: underline;
   border-bottom: 1px dotted;
@@ -47,18 +52,23 @@ body {
 .icon-container {
   padding: 10px;
 }
+
 .icon-container a {
-      color: #111E6C;
+  color: #111E6C;
 }
-.icon-container a:hover{
-      color: #2039CC
+
+.icon-container a:hover {
+  color: #2039CC
 }
-.icon-container .icon{
-      padding: 5px;
+
+.icon-container .icon {
+  padding: 5px;
 }
+
 .fa-twitter-custom {
   color: #fff;
 }
+
 .fa-strava-custom {
   color: #fc4c02;
 }
@@ -71,4 +81,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.menu {
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+
+.menu a {
+  color: #111E6C;
+}
+
+.menu .active {
+  font-weight: bold;
+}
+
+.menu a:hover {
+  color: #2039CC
 }
