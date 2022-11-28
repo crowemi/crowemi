@@ -12,6 +12,7 @@ pytest = "^7.1.2"
 pytest-env = "^0.6.2"
 web3 = {extras = ["tester"], version = "^5.30.0"}
 gunicorn = "^20.1.0"
+boto3 = "^1.26.16"
 
 [tool.poetry.dev-dependencies]
 

@@ -58,3 +58,29 @@ def get_latest_tweet(twitter_username: str = 'therealcrowemi', twitter_bearer: s
         print(e)
 
     return ret
+
+def get_followers(twitter_username: str = 'therealcrowemi', twitter_bearer: str = TWITTER_BEARER, max_size: int = 25):
+    ret = list()
+    try:
+        headers = {'Authorization': f'Bearer {twitter_bearer}'}
+        user = json.loads(requests.get(f"https://api.twitter.com/2/users/by/username/{twitter_username}", headers = headers).content)
+        token = None
+        # must have a user object
+        if user:
+            while True:
+                url = f"https://api.twitter.com/2/users/{user['data'].get('id')}/followers?max_results={max_size}"
+                if token:
+                    url += f"&pagination_token={token}"
+                followers = json.loads(requests.get(url, headers = headers).content)
+                # append followers to ret
+                list(map(lambda x: ret.append(x), followers.get('data')))
+                meta = followers.get('meta')
+                token = meta.get('next_token')
+                if not token:
+                    break
+
+            print(followers)
+    except Exception as e:
+        # no soup for you!
+        print(e)
+    return ret
