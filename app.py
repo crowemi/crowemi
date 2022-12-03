@@ -9,6 +9,7 @@ logging.basicConfig(filename='log/record.log', level=logging.DEBUG, format=f'%(a
  
 
 app = Flask(__name__, subdomain_matching=True)
+app.config["SERVER_NAME"] = 'crowemi.com'
 
 app.register_blueprint(crowemi)
 app.register_blueprint(blog, subdomain="blog")
