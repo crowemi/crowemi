@@ -15,3 +15,4 @@ app.register_blueprint(blog, subdomain="blog")
 if __name__ == "__main__":
     app.config["SERVER_NAME"] = 'crowemi.com' #TODO: find a better way to config 'crowemi.local:5000'
     app.run(debug=True)
+
