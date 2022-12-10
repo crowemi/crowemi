@@ -1,8 +1,48 @@
 <!doctype html>
 <html lang="en">
 
-{% include "nav.html" %}
+{% include "header.html" %}
 
-{% include "footer.html" %}
+<body>
+    <div class="container-fluid main-container">
+        <div class="row">
+            <div class="col-3 blog-side-panel">
+                <div class="col-sm-12">
+                    <div class="text-center" style="padding: 25px 0 0 0">
+                        <a href="{{ url_for('crowemi.index') }}">
+                            <img src="{{ url_for('static', filename='img/memoji.png') }}" class="img-fluid rounded"
+                                alt="Andy Crowe"></img>
+                            <p style="padding:20px">Andy Crowe</p>
+                        </a>
+                    </div>
+                    <hr class="border">
+                    <div style="padding: 0 25px 0 25px">
+                        <nav class="nav flex-column">
+                            <a href="{{ url_for('blog.index') }}" class="nav-link">
+                                home
+                            </a>
+                            <a href="{{ url_for('blog.investing') }}" class="nav-link">
+                                investing
+                            </a>
+                            <a class="nav-link disabled">
+                                personal finance
+                                <span class="badge rounded-pill text-bg-dark">coming soon</span>
+                            </a>
+                            <a class="nav-link disabled">
+                                programming
+                                <span class="badge rounded-pill text-bg-dark">coming soon</span>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="blog-page-content" style="padding:15px">
+                    {{ page_content | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 
 </html>

@@ -71,3 +71,145 @@
 2022-11-22 22:09:03,774 INFO werkzeug Thread-8 : 127.0.0.1 - - [22/Nov/2022 22:09:03] "[33mGET / HTTP/1.1[0m" 404 -
 2022-11-22 22:09:13,916 INFO werkzeug Thread-9 : 127.0.0.1 - - [22/Nov/2022 22:09:13] "[33mGET / HTTP/1.1[0m" 404 -
 2022-11-22 22:09:22,454 INFO werkzeug MainThread :  * Detected change in '/Users/andycrowe/code/personal/crowemi/app.py', reloading
+2022-12-02 15:57:35,450 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+2022-12-02 15:57:48,101 DEBUG urllib3.connectionpool Thread-7 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 15:57:48,268 DEBUG urllib3.connectionpool Thread-7 : https://api.twitter.com:443 "GET /2/users/by/username/therealcrowemi HTTP/1.1" 200 115
+2022-12-02 15:57:48,287 DEBUG urllib3.connectionpool Thread-7 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 15:57:48,576 DEBUG urllib3.connectionpool Thread-7 : https://api.twitter.com:443 "GET /2/users/1496716934670282752/tweets?tweet.fields=created_at&exclude=replies&expansions=attachments.media_keys&media.fields=url,type HTTP/1.1" 200 1184
+2022-12-02 15:57:48,651 INFO werkzeug Thread-7 : 127.0.0.1 - - [02/Dec/2022 15:57:48] "GET / HTTP/1.1" 200 -
+2022-12-02 15:57:48,724 INFO werkzeug Thread-8 : 127.0.0.1 - - [02/Dec/2022 15:57:48] "GET /static/css/crowemi.css HTTP/1.1" 200 -
+2022-12-02 15:57:48,855 INFO werkzeug Thread-9 : 127.0.0.1 - - [02/Dec/2022 15:57:48] "GET /static/js/metamask.js HTTP/1.1" 200 -
+2022-12-02 15:57:48,864 INFO werkzeug Thread-10 : 127.0.0.1 - - [02/Dec/2022 15:57:48] "GET /static/img/memoji.png HTTP/1.1" 200 -
+2022-12-02 15:57:49,268 INFO werkzeug Thread-11 : 127.0.0.1 - - [02/Dec/2022 15:57:49] "GET /static/img/favicon.ico HTTP/1.1" 200 -
+2022-12-02 15:57:49,472 INFO werkzeug Thread-12 : 127.0.0.1 - - [02/Dec/2022 15:57:49] "[36mGET /static/img/favicon.ico HTTP/1.1[0m" 304 -
+2022-12-02 15:57:53,809 DEBUG urllib3.connectionpool Thread-13 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 15:57:53,951 DEBUG urllib3.connectionpool Thread-13 : https://api.twitter.com:443 "GET /2/users/by/username/therealcrowemi HTTP/1.1" 200 115
+2022-12-02 15:57:53,960 DEBUG urllib3.connectionpool Thread-13 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 15:57:54,265 DEBUG urllib3.connectionpool Thread-13 : https://api.twitter.com:443 "GET /2/users/1496716934670282752/tweets?tweet.fields=created_at&exclude=replies&expansions=attachments.media_keys&media.fields=url,type HTTP/1.1" 200 1184
+2022-12-02 15:57:54,271 INFO werkzeug Thread-13 : 127.0.0.1 - - [02/Dec/2022 15:57:54] "GET / HTTP/1.1" 200 -
+2022-12-02 15:57:54,289 INFO werkzeug Thread-14 : 127.0.0.1 - - [02/Dec/2022 15:57:54] "GET /static/css/crowemi.css HTTP/1.1" 200 -
+2022-12-02 15:57:54,298 INFO werkzeug Thread-15 : 127.0.0.1 - - [02/Dec/2022 15:57:54] "GET /static/img/memoji.png HTTP/1.1" 200 -
+2022-12-02 15:57:54,311 INFO werkzeug Thread-16 : 127.0.0.1 - - [02/Dec/2022 15:57:54] "GET /static/js/metamask.js HTTP/1.1" 200 -
+2022-12-02 15:57:54,333 INFO werkzeug Thread-17 : 127.0.0.1 - - [02/Dec/2022 15:57:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2022-12-02 15:57:54,559 INFO werkzeug Thread-18 : 127.0.0.1 - - [02/Dec/2022 15:57:54] "GET /static/img/favicon.ico HTTP/1.1" 200 -
+2022-12-02 15:57:54,585 INFO werkzeug Thread-19 : 127.0.0.1 - - [02/Dec/2022 15:57:54] "[36mGET /static/img/favicon.ico HTTP/1.1[0m" 304 -
+2022-12-02 15:58:08,182 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+2022-12-02 15:58:09,168 DEBUG urllib3.connectionpool Thread-7 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 15:58:09,320 DEBUG urllib3.connectionpool Thread-7 : https://api.twitter.com:443 "GET /2/users/by/username/therealcrowemi HTTP/1.1" 200 115
+2022-12-02 15:58:09,332 DEBUG urllib3.connectionpool Thread-7 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 15:58:09,594 DEBUG urllib3.connectionpool Thread-7 : https://api.twitter.com:443 "GET /2/users/1496716934670282752/tweets?tweet.fields=created_at&exclude=replies&expansions=attachments.media_keys&media.fields=url,type HTTP/1.1" 200 1187
+2022-12-02 15:58:09,641 INFO werkzeug Thread-7 : 127.0.0.1 - - [02/Dec/2022 15:58:09] "GET / HTTP/1.1" 200 -
+2022-12-02 15:58:09,672 INFO werkzeug Thread-8 : 127.0.0.1 - - [02/Dec/2022 15:58:09] "[36mGET /static/css/crowemi.css HTTP/1.1[0m" 304 -
+2022-12-02 15:58:09,689 INFO werkzeug Thread-9 : 127.0.0.1 - - [02/Dec/2022 15:58:09] "[36mGET /static/js/metamask.js HTTP/1.1[0m" 304 -
+2022-12-02 15:58:09,704 INFO werkzeug Thread-10 : 127.0.0.1 - - [02/Dec/2022 15:58:09] "[36mGET /static/img/memoji.png HTTP/1.1[0m" 304 -
+2022-12-02 15:58:09,831 INFO werkzeug Thread-11 : 127.0.0.1 - - [02/Dec/2022 15:58:09] "[36mGET /static/img/favicon.ico HTTP/1.1[0m" 304 -
+2022-12-02 15:58:09,903 INFO werkzeug Thread-12 : 127.0.0.1 - - [02/Dec/2022 15:58:09] "[36mGET /static/img/favicon.ico HTTP/1.1[0m" 304 -
+2022-12-02 15:58:10,574 DEBUG urllib3.connectionpool Thread-13 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 15:58:10,719 DEBUG urllib3.connectionpool Thread-13 : https://api.twitter.com:443 "GET /2/users/by/username/therealcrowemi HTTP/1.1" 200 115
+2022-12-02 15:58:10,728 DEBUG urllib3.connectionpool Thread-13 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 15:58:10,982 DEBUG urllib3.connectionpool Thread-13 : https://api.twitter.com:443 "GET /2/users/1496716934670282752/tweets?tweet.fields=created_at&exclude=replies&expansions=attachments.media_keys&media.fields=url,type HTTP/1.1" 200 1187
+2022-12-02 15:58:10,989 INFO werkzeug Thread-13 : 127.0.0.1 - - [02/Dec/2022 15:58:10] "GET / HTTP/1.1" 200 -
+2022-12-02 15:58:11,012 INFO werkzeug Thread-14 : 127.0.0.1 - - [02/Dec/2022 15:58:11] "[36mGET /static/css/crowemi.css HTTP/1.1[0m" 304 -
+2022-12-02 15:58:11,035 INFO werkzeug Thread-15 : 127.0.0.1 - - [02/Dec/2022 15:58:11] "[36mGET /static/js/metamask.js HTTP/1.1[0m" 304 -
+2022-12-02 15:58:11,056 INFO werkzeug Thread-16 : 127.0.0.1 - - [02/Dec/2022 15:58:11] "[36mGET /static/img/memoji.png HTTP/1.1[0m" 304 -
+2022-12-02 15:58:11,163 INFO werkzeug Thread-17 : 127.0.0.1 - - [02/Dec/2022 15:58:11] "[36mGET /static/img/favicon.ico HTTP/1.1[0m" 304 -
+2022-12-02 15:58:11,227 INFO werkzeug Thread-18 : 127.0.0.1 - - [02/Dec/2022 15:58:11] "[36mGET /static/img/favicon.ico HTTP/1.1[0m" 304 -
+2022-12-02 15:58:27,349 DEBUG urllib3.connectionpool Thread-23 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 15:58:27,502 DEBUG urllib3.connectionpool Thread-23 : https://api.twitter.com:443 "GET /2/users/by/username/therealcrowemi HTTP/1.1" 200 115
+2022-12-02 15:58:27,511 DEBUG urllib3.connectionpool Thread-23 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 15:58:27,776 DEBUG urllib3.connectionpool Thread-23 : https://api.twitter.com:443 "GET /2/users/1496716934670282752/tweets?tweet.fields=created_at&exclude=replies&expansions=attachments.media_keys&media.fields=url,type HTTP/1.1" 200 1189
+2022-12-02 15:58:27,782 INFO werkzeug Thread-23 : 127.0.0.1 - - [02/Dec/2022 15:58:27] "GET / HTTP/1.1" 200 -
+2022-12-02 15:58:27,933 INFO werkzeug Thread-22 : 127.0.0.1 - - [02/Dec/2022 15:58:27] "GET /static/css/crowemi.css HTTP/1.1" 200 -
+2022-12-02 15:58:27,940 INFO werkzeug Thread-21 : 127.0.0.1 - - [02/Dec/2022 15:58:27] "[36mGET /static/js/metamask.js HTTP/1.1[0m" 304 -
+2022-12-02 15:58:28,082 INFO werkzeug Thread-20 : 127.0.0.1 - - [02/Dec/2022 15:58:28] "[36mGET /static/img/memoji.png HTTP/1.1[0m" 304 -
+2022-12-02 15:58:29,113 DEBUG urllib3.connectionpool Thread-25 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 15:58:29,256 DEBUG urllib3.connectionpool Thread-25 : https://api.twitter.com:443 "GET /2/users/by/username/therealcrowemi HTTP/1.1" 200 115
+2022-12-02 15:58:29,268 DEBUG urllib3.connectionpool Thread-25 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 15:58:29,538 DEBUG urllib3.connectionpool Thread-25 : https://api.twitter.com:443 "GET /2/users/1496716934670282752/tweets?tweet.fields=created_at&exclude=replies&expansions=attachments.media_keys&media.fields=url,type HTTP/1.1" 200 1186
+2022-12-02 15:58:29,544 INFO werkzeug Thread-25 : 127.0.0.1 - - [02/Dec/2022 15:58:29] "GET / HTTP/1.1" 200 -
+2022-12-02 15:58:29,625 INFO werkzeug Thread-26 : 127.0.0.1 - - [02/Dec/2022 15:58:29] "GET /static/css/crowemi.css HTTP/1.1" 200 -
+2022-12-02 15:58:29,632 INFO werkzeug Thread-27 : 127.0.0.1 - - [02/Dec/2022 15:58:29] "GET /static/js/metamask.js HTTP/1.1" 200 -
+2022-12-02 15:58:29,638 INFO werkzeug Thread-28 : 127.0.0.1 - - [02/Dec/2022 15:58:29] "GET /static/img/memoji.png HTTP/1.1" 200 -
+2022-12-02 15:58:29,800 INFO werkzeug Thread-29 : 127.0.0.1 - - [02/Dec/2022 15:58:29] "GET /static/img/favicon.ico HTTP/1.1" 200 -
+2022-12-02 16:04:22,538 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+2022-12-02 16:04:29,119 DEBUG urllib3.connectionpool Thread-7 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 16:04:29,269 DEBUG urllib3.connectionpool Thread-7 : https://api.twitter.com:443 "GET /2/users/by/username/therealcrowemi HTTP/1.1" 200 115
+2022-12-02 16:04:29,282 DEBUG urllib3.connectionpool Thread-7 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 16:04:29,550 DEBUG urllib3.connectionpool Thread-7 : https://api.twitter.com:443 "GET /2/users/1496716934670282752/tweets?tweet.fields=created_at&exclude=replies&expansions=attachments.media_keys&media.fields=url,type HTTP/1.1" 200 1199
+2022-12-02 16:04:29,600 INFO werkzeug Thread-7 : 127.0.0.1 - - [02/Dec/2022 16:04:29] "GET / HTTP/1.1" 200 -
+2022-12-02 16:04:29,683 INFO werkzeug Thread-8 : 127.0.0.1 - - [02/Dec/2022 16:04:29] "GET /static/css/crowemi.css HTTP/1.1" 200 -
+2022-12-02 16:04:29,687 INFO werkzeug Thread-9 : 127.0.0.1 - - [02/Dec/2022 16:04:29] "GET /static/js/metamask.js HTTP/1.1" 200 -
+2022-12-02 16:04:29,819 INFO werkzeug Thread-10 : 127.0.0.1 - - [02/Dec/2022 16:04:29] "GET /static/img/memoji.png HTTP/1.1" 200 -
+2022-12-02 16:04:30,164 INFO werkzeug Thread-11 : 127.0.0.1 - - [02/Dec/2022 16:04:30] "GET /static/img/favicon.ico HTTP/1.1" 200 -
+2022-12-02 16:04:35,187 DEBUG urllib3.connectionpool Thread-12 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 16:04:35,336 DEBUG urllib3.connectionpool Thread-12 : https://api.twitter.com:443 "GET /2/users/by/username/therealcrowemi HTTP/1.1" 200 115
+2022-12-02 16:04:35,347 DEBUG urllib3.connectionpool Thread-12 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 16:04:35,663 DEBUG urllib3.connectionpool Thread-12 : https://api.twitter.com:443 "GET /2/users/1496716934670282752/tweets?tweet.fields=created_at&exclude=replies&expansions=attachments.media_keys&media.fields=url,type HTTP/1.1" 200 1193
+2022-12-02 16:04:35,670 INFO werkzeug Thread-12 : 127.0.0.1 - - [02/Dec/2022 16:04:35] "GET / HTTP/1.1" 200 -
+2022-12-02 16:04:35,718 INFO werkzeug Thread-13 : 127.0.0.1 - - [02/Dec/2022 16:04:35] "GET /static/css/crowemi.css HTTP/1.1" 200 -
+2022-12-02 16:04:35,726 INFO werkzeug Thread-14 : 127.0.0.1 - - [02/Dec/2022 16:04:35] "GET /static/js/metamask.js HTTP/1.1" 200 -
+2022-12-02 16:04:35,857 INFO werkzeug Thread-15 : 127.0.0.1 - - [02/Dec/2022 16:04:35] "GET /static/img/memoji.png HTTP/1.1" 200 -
+2022-12-02 16:04:36,004 INFO werkzeug Thread-16 : 127.0.0.1 - - [02/Dec/2022 16:04:36] "GET /static/img/favicon.ico HTTP/1.1" 200 -
+2022-12-02 16:05:18,894 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+2022-12-02 16:05:19,974 DEBUG urllib3.connectionpool Thread-7 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 16:05:20,125 DEBUG urllib3.connectionpool Thread-7 : https://api.twitter.com:443 "GET /2/users/by/username/therealcrowemi HTTP/1.1" 200 115
+2022-12-02 16:05:20,137 DEBUG urllib3.connectionpool Thread-7 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 16:05:20,391 DEBUG urllib3.connectionpool Thread-7 : https://api.twitter.com:443 "GET /2/users/1496716934670282752/tweets?tweet.fields=created_at&exclude=replies&expansions=attachments.media_keys&media.fields=url,type HTTP/1.1" 200 1194
+2022-12-02 16:05:20,438 INFO werkzeug Thread-7 : 127.0.0.1 - - [02/Dec/2022 16:05:20] "GET / HTTP/1.1" 200 -
+2022-12-02 16:05:20,477 INFO werkzeug Thread-8 : 127.0.0.1 - - [02/Dec/2022 16:05:20] "[36mGET /static/css/crowemi.css HTTP/1.1[0m" 304 -
+2022-12-02 16:05:20,485 INFO werkzeug Thread-9 : 127.0.0.1 - - [02/Dec/2022 16:05:20] "[36mGET /static/js/metamask.js HTTP/1.1[0m" 304 -
+2022-12-02 16:05:20,510 INFO werkzeug Thread-10 : 127.0.0.1 - - [02/Dec/2022 16:05:20] "[36mGET /static/img/memoji.png HTTP/1.1[0m" 304 -
+2022-12-02 16:05:31,496 DEBUG urllib3.connectionpool Thread-11 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 16:05:31,635 DEBUG urllib3.connectionpool Thread-11 : https://api.twitter.com:443 "GET /2/users/by/username/therealcrowemi HTTP/1.1" 200 115
+2022-12-02 16:05:31,645 DEBUG urllib3.connectionpool Thread-11 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 16:05:31,932 DEBUG urllib3.connectionpool Thread-11 : https://api.twitter.com:443 "GET /2/users/1496716934670282752/tweets?tweet.fields=created_at&exclude=replies&expansions=attachments.media_keys&media.fields=url,type HTTP/1.1" 200 1187
+2022-12-02 16:05:31,939 INFO werkzeug Thread-11 : 127.0.0.1 - - [02/Dec/2022 16:05:31] "GET / HTTP/1.1" 200 -
+2022-12-02 16:05:31,980 INFO werkzeug Thread-12 : 127.0.0.1 - - [02/Dec/2022 16:05:31] "[36mGET /static/css/crowemi.css HTTP/1.1[0m" 304 -
+2022-12-02 16:05:31,986 INFO werkzeug Thread-13 : 127.0.0.1 - - [02/Dec/2022 16:05:31] "[36mGET /static/js/metamask.js HTTP/1.1[0m" 304 -
+2022-12-02 16:05:31,992 INFO werkzeug Thread-14 : 127.0.0.1 - - [02/Dec/2022 16:05:31] "[36mGET /static/img/memoji.png HTTP/1.1[0m" 304 -
+2022-12-02 16:05:36,548 DEBUG urllib3.connectionpool Thread-15 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 16:05:36,700 DEBUG urllib3.connectionpool Thread-15 : https://api.twitter.com:443 "GET /2/users/by/username/therealcrowemi HTTP/1.1" 200 115
+2022-12-02 16:05:36,710 DEBUG urllib3.connectionpool Thread-15 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 16:05:36,984 DEBUG urllib3.connectionpool Thread-15 : https://api.twitter.com:443 "GET /2/users/1496716934670282752/tweets?tweet.fields=created_at&exclude=replies&expansions=attachments.media_keys&media.fields=url,type HTTP/1.1" 200 1187
+2022-12-02 16:05:36,990 INFO werkzeug Thread-15 : 127.0.0.1 - - [02/Dec/2022 16:05:36] "GET / HTTP/1.1" 200 -
+2022-12-02 16:05:37,047 INFO werkzeug Thread-16 : 127.0.0.1 - - [02/Dec/2022 16:05:37] "[36mGET /static/css/crowemi.css HTTP/1.1[0m" 304 -
+2022-12-02 16:05:37,058 INFO werkzeug Thread-17 : 127.0.0.1 - - [02/Dec/2022 16:05:37] "[36mGET /static/js/metamask.js HTTP/1.1[0m" 304 -
+2022-12-02 16:05:37,067 INFO werkzeug Thread-18 : 127.0.0.1 - - [02/Dec/2022 16:05:37] "[36mGET /static/img/memoji.png HTTP/1.1[0m" 304 -
+2022-12-02 16:05:51,714 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+2022-12-02 16:05:54,284 DEBUG urllib3.connectionpool Thread-7 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 16:05:54,432 DEBUG urllib3.connectionpool Thread-7 : https://api.twitter.com:443 "GET /2/users/by/username/therealcrowemi HTTP/1.1" 200 115
+2022-12-02 16:05:54,445 DEBUG urllib3.connectionpool Thread-7 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 16:05:54,724 DEBUG urllib3.connectionpool Thread-7 : https://api.twitter.com:443 "GET /2/users/1496716934670282752/tweets?tweet.fields=created_at&exclude=replies&expansions=attachments.media_keys&media.fields=url,type HTTP/1.1" 200 1193
+2022-12-02 16:05:54,774 INFO werkzeug Thread-7 : 127.0.0.1 - - [02/Dec/2022 16:05:54] "GET / HTTP/1.1" 200 -
+2022-12-02 16:05:54,814 INFO werkzeug Thread-8 : 127.0.0.1 - - [02/Dec/2022 16:05:54] "[36mGET /static/css/crowemi.css HTTP/1.1[0m" 304 -
+2022-12-02 16:05:54,820 INFO werkzeug Thread-9 : 127.0.0.1 - - [02/Dec/2022 16:05:54] "[36mGET /static/js/metamask.js HTTP/1.1[0m" 304 -
+2022-12-02 16:05:54,847 INFO werkzeug Thread-10 : 127.0.0.1 - - [02/Dec/2022 16:05:54] "[36mGET /static/img/memoji.png HTTP/1.1[0m" 304 -
+2022-12-02 16:05:56,283 DEBUG urllib3.connectionpool Thread-11 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 16:05:56,429 DEBUG urllib3.connectionpool Thread-11 : https://api.twitter.com:443 "GET /2/users/by/username/therealcrowemi HTTP/1.1" 200 115
+2022-12-02 16:05:56,439 DEBUG urllib3.connectionpool Thread-11 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 16:05:56,712 DEBUG urllib3.connectionpool Thread-11 : https://api.twitter.com:443 "GET /2/users/1496716934670282752/tweets?tweet.fields=created_at&exclude=replies&expansions=attachments.media_keys&media.fields=url,type HTTP/1.1" 200 1189
+2022-12-02 16:05:56,719 INFO werkzeug Thread-11 : 127.0.0.1 - - [02/Dec/2022 16:05:56] "GET / HTTP/1.1" 200 -
+2022-12-02 16:05:56,751 INFO werkzeug Thread-12 : 127.0.0.1 - - [02/Dec/2022 16:05:56] "[36mGET /static/css/crowemi.css HTTP/1.1[0m" 304 -
+2022-12-02 16:05:56,760 INFO werkzeug Thread-13 : 127.0.0.1 - - [02/Dec/2022 16:05:56] "[36mGET /static/js/metamask.js HTTP/1.1[0m" 304 -
+2022-12-02 16:05:56,787 INFO werkzeug Thread-14 : 127.0.0.1 - - [02/Dec/2022 16:05:56] "[36mGET /static/img/memoji.png HTTP/1.1[0m" 304 -
+2022-12-02 16:06:01,770 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+2022-12-02 16:07:22,391 DEBUG urllib3.connectionpool Thread-7 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 16:07:22,546 DEBUG urllib3.connectionpool Thread-7 : https://api.twitter.com:443 "GET /2/users/by/username/therealcrowemi HTTP/1.1" 200 115
+2022-12-02 16:07:22,558 DEBUG urllib3.connectionpool Thread-7 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 16:07:22,812 DEBUG urllib3.connectionpool Thread-7 : https://api.twitter.com:443 "GET /2/users/1496716934670282752/tweets?tweet.fields=created_at&exclude=replies&expansions=attachments.media_keys&media.fields=url,type HTTP/1.1" 200 1197
+2022-12-02 16:07:22,867 INFO werkzeug Thread-7 : 127.0.0.1 - - [02/Dec/2022 16:07:22] "GET / HTTP/1.1" 200 -
+2022-12-02 16:07:22,933 INFO werkzeug Thread-8 : 127.0.0.1 - - [02/Dec/2022 16:07:22] "[36mGET /static/css/crowemi.css HTTP/1.1[0m" 304 -
+2022-12-02 16:07:22,942 INFO werkzeug Thread-9 : 127.0.0.1 - - [02/Dec/2022 16:07:22] "[36mGET /static/js/metamask.js HTTP/1.1[0m" 304 -
+2022-12-02 16:07:22,947 INFO werkzeug Thread-10 : 127.0.0.1 - - [02/Dec/2022 16:07:22] "[36mGET /static/img/memoji.png HTTP/1.1[0m" 304 -
+2022-12-02 16:08:38,342 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+2022-12-02 16:09:26,529 INFO werkzeug MainThread :  * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+2022-12-02 16:09:37,514 DEBUG urllib3.connectionpool Thread-7 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 16:09:37,664 DEBUG urllib3.connectionpool Thread-7 : https://api.twitter.com:443 "GET /2/users/by/username/therealcrowemi HTTP/1.1" 200 115
+2022-12-02 16:09:37,676 DEBUG urllib3.connectionpool Thread-7 : Starting new HTTPS connection (1): api.twitter.com:443
+2022-12-02 16:09:37,940 DEBUG urllib3.connectionpool Thread-7 : https://api.twitter.com:443 "GET /2/users/1496716934670282752/tweets?tweet.fields=created_at&exclude=replies&expansions=attachments.media_keys&media.fields=url,type HTTP/1.1" 200 1194
+2022-12-02 16:09:37,987 INFO werkzeug Thread-7 : 127.0.0.1 - - [02/Dec/2022 16:09:37] "GET / HTTP/1.1" 200 -
+2022-12-02 16:09:38,045 INFO werkzeug Thread-8 : 127.0.0.1 - - [02/Dec/2022 16:09:38] "[36mGET /static/css/crowemi.css HTTP/1.1[0m" 304 -
+2022-12-02 16:09:38,056 INFO werkzeug Thread-9 : 127.0.0.1 - - [02/Dec/2022 16:09:38] "[36mGET /static/js/metamask.js HTTP/1.1[0m" 304 -
+2022-12-02 16:09:38,067 INFO werkzeug Thread-10 : 127.0.0.1 - - [02/Dec/2022 16:09:38] "[36mGET /static/img/memoji.png HTTP/1.1[0m" 304 -
+2022-12-02 16:09:40,936 INFO werkzeug Thread-11 : 127.0.0.1 - - [02/Dec/2022 16:09:40] "GET / HTTP/1.1" 200 -
+2022-12-02 16:09:41,013 INFO werkzeug Thread-12 : 127.0.0.1 - - [02/Dec/2022 16:09:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
