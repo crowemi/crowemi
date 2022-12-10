@@ -1,13 +1,28 @@
 <div class="menu">
     <div class="menu-container container-fluid">
         <div class="row">
-            <div class="col-6">
-                <nav class="nav">
-                    <a class="nav-link active" aria-current="page" href="#">home</a>
-                    <a class="nav-link" href="https://blog.crowemi.com">blog</a>
-                </nav>
+            <div class="col-12">
+                <div class="row">
+                    <div class="center col-4">
+                        <a href="{{ url_for('blog.investing') }}" class="lead center">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                            investing
+                        </a>
+                    </div>
+                    <div class="center col-4">
+                        <a href="{{ url_for('blog.index') }}" class="lead center">
+                            <i class="fa-solid fa-sack-dollar"></i>
+                            personal finance
+                        </a>
+                    </div>
+                    <div class="center col-4">
+                        <a href="{{ url_for('blog.index') }}" class="lead center">
+                            <i class="fa-solid fa-code"></i>
+                            programming
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="col-6"></div>
         </div>
     </div>
 </div>

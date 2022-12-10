@@ -84,12 +84,14 @@ body {
 }
 
 .menu {
-  padding: 10px;
+  padding: 20px 0 20px 0;
   background-color: #f2f2f2;
 }
 
 .menu a {
   color: #111E6C;
+  text-decoration: none;
+  text-align: center;
 }
 
 .menu .active {
@@ -97,5 +99,21 @@ body {
 }
 
 .menu a:hover {
-  color: #2039CC
+  color: #2039CC;
+  text-decoration: dotted;
+}
+
+.menu i {
+  padding: 0 10px 0 10px;
+}
+
+.blog-side-panel {
+  background-color: #111E6C;
+  height: 100vh;
+  color: white
+}
+
+.blog-side-panel hr {
+  border: 2px;
+  border-style: dashed !important;
 }
