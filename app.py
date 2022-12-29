@@ -30,6 +30,12 @@ dictConfig(
     }
 )
 
+SERVER_NAME = {
+    "development": "crowemi.local:5000",
+    "docker": "localhost:8080",
+    "production": "crowemi.com"
+}
+
 app = Flask(__name__, subdomain_matching=True)
 
 app.config["SERVER_NAME"] = 'crowemi.com' #TODO: find a better way to config 'crowemi.local:5000'

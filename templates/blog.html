@@ -4,19 +4,18 @@
 {% include "header.html" %}
 
 <body>
-    <div class="container-fluid main-container">
-        <div class="row">
-            <div class="col-3 blog-side-panel">
-                <div class="col-sm-12">
-                    <div class="text-center" style="padding: 25px 0 0 0">
+    <div class="container-fluid">
+        <div class="blog-web-container">
+            <div class="row">
+                <div class="col-2 blog-left-container">
+                    <div class="blog-top-left-panel text-center" style="padding: 25px 0 0 0">
                         <a href="{{ url_for('crowemi.index') }}">
                             <img src="{{ url_for('static', filename='img/memoji.png') }}" class="img-fluid rounded"
                                 alt="Andy Crowe"></img>
                             <p style="padding:20px">Andy Crowe</p>
                         </a>
                     </div>
-                    <hr class="border">
-                    <div style="padding: 0 25px 0 25px">
+                    <div class="blog-bottom-left-panel">
                         <nav class="nav flex-column">
                             <a href="{{ url_for('blog.index') }}" class="nav-link">
                                 home
@@ -35,13 +34,24 @@
                         </nav>
                     </div>
                 </div>
-            </div>
-            <div class="col-6">
-                <div class="blog-page-content" style="padding:15px">
-                    {{ page_content | safe }}
+                <div class="col-8 blog-middle-container">
+                    <div class="blog-top-page-content">
+                        {{ page_content | safe }}
+                    </div>
+                </div>
+                <div class="col-2 blog-right-container">
+                    <p class="lead">Latest</p>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="blog-mobile-container">
+        </div>
+
     </div>
 </body>
 
