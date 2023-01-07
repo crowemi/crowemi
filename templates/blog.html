@@ -20,7 +20,7 @@
                             <a href="{{ url_for('blog.index') }}" class="nav-link">
                                 home
                             </a>
-                            <a href="{{ url_for('blog.investing') }}" class="nav-link">
+                            <a href="{{ url_for('blog.investing', subject='investing') }}" class="nav-link">
                                 investing
                             </a>
                             <a class="nav-link disabled">
@@ -37,6 +37,9 @@
                 <div class="col-8 blog-middle-container">
                     <div class="blog-top-page-content">
                         {{ page_content | safe }}
+                        <hr>
+                        <i class="fa-solid fa-calendar-days"></i> {{ last_modified.strftime('%A, %B %-d, %Y at
+                        %-H:%M %p') }}
                     </div>
                 </div>
                 <div class="col-2 blog-right-container">
