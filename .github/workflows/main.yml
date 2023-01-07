@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -60,7 +60,8 @@ jobs:
               \"crowemi\": {
                 \"image\": \"926488920335.dkr.ecr.us-west-2.amazonaws.com/crowemi:latest\",
                 \"environment\": {
-                  \"twitter_bearer\": \"${{ secrets.TWITTER_BEARER }}\"
+                  \"twitter_bearer\": \"${{ secrets.TWITTER_BEARER }}\",
+                  \"server_name\": \"crowemi.com\"
                 },
                 \"ports\": {
                   \"8080\": \"HTTP\"
