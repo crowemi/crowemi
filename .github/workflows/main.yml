@@ -61,8 +61,8 @@ jobs:
                 \"image\": \"926488920335.dkr.ecr.us-west-2.amazonaws.com/crowemi:latest\",
                 \"environment\": {
                   \"twitter_bearer\": \"${{ secrets.TWITTER_BEARER }}\",
-                  \"server_name\": \"crowemi.com\"
-                  \"AWS_ACCESS_KEY_ID\": \"${{ secrets.AWS_ACCESS_KEY_ID }}\"
+                  \"server_name\": \"crowemi.com\",
+                  \"AWS_ACCESS_KEY_ID\": \"${{ secrets.AWS_ACCESS_KEY_ID }}\",
                   \"AWS_SECRET_ACCESS_KEY\": \"${{ secrets.AWS_SECRET_ACCESS_KEY }}\"
                 },
                 \"ports\": {
