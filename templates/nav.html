@@ -1,7 +1,7 @@
 <div class="menu">
     <div class="menu-container container-fluid">
         <div class="row">
-            <div class="col-12">
+            <div class="menu-web-container col-12 d-none d-sm-block">
                 <div class="row">
                     <div class="center col-4">
                         <a href="{{ url_for('blog.investing') }}" class="lead center">
@@ -16,6 +16,28 @@
                         </a>
                     </div>
                     <div class="center col-4">
+                        <a href="{{ url_for('blog.index') }}" class="lead center">
+                            <i class="fa-solid fa-code"></i>
+                            programming
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-mobile-container col-12 d-sm-none">
+                <div class="row">
+                    <div class="center col-12 menu-mobile-element border-bottom">
+                        <a href="{{ url_for('blog.investing') }}" class="lead center">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                            investing
+                        </a>
+                    </div>
+                    <div class="center col-12 menu-mobile-element border-bottom">
+                        <a href="{{ url_for('blog.index') }}" class="lead center">
+                            <i class="fa-solid fa-sack-dollar"></i>
+                            personal finance
+                        </a>
+                    </div>
+                    <div class="center col-12 menu-mobile-element">
                         <a href="{{ url_for('blog.index') }}" class="lead center">
                             <i class="fa-solid fa-code"></i>
                             programming

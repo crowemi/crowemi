@@ -1,3 +1,4 @@
+import os
 from logging.config import dictConfig
 
 from flask import Flask
@@ -30,15 +31,16 @@ dictConfig(
     }
 )
 
+
 app = Flask(__name__, subdomain_matching=True)
 
-app.config["SERVER_NAME"] = 'crowemi.com' #TODO: find a better way to config 'crowemi.local:5000'
+app.config["SERVER_NAME"] = os.getenv("server_name")
 
 app.register_blueprint(crowemi)
 app.register_blueprint(blog, subdomain="blog")
 
 
 if __name__ == "__main__":
-    app.config["SERVER_NAME"] = 'crowemi.com' #TODO: find a better way to config 'crowemi.local:5000'
+    app.config["SERVER_NAME"] = os.getenv("server_name")
     app.run(debug=True)
 
