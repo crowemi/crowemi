@@ -20,16 +20,14 @@
                             <a href="{{ url_for('blog.index') }}" class="nav-link">
                                 home
                             </a>
-                            <a href="{{ url_for('blog.investing', subject='investing') }}" class="nav-link">
+                            <a href="{{ url_for('blog.page', subject='investing') }}" class="nav-link">
                                 investing
                             </a>
-                            <a class="nav-link disabled">
-                                personal finance
-                                <span class="badge rounded-pill text-bg-dark">coming soon</span>
+                            <a href="{{ url_for('blog.page', subject='finance') }}" class="nav-link">
+                                finance
                             </a>
-                            <a class="nav-link disabled">
-                                programming
-                                <span class="badge rounded-pill text-bg-dark">coming soon</span>
+                            <a href="{{ url_for('blog.page', subject='tutorials') }}" class="nav-link">
+                                tutorials
                             </a>
                         </nav>
                     </div>
@@ -37,9 +35,13 @@
                 <div class="col-8 blog-middle-container">
                     <div class="blog-top-page-content">
                         {{ page_content | safe }}
+
+                        {% if last_modified %}
                         <hr>
                         <i class="fa-solid fa-calendar-days"></i> {{ last_modified.strftime('%A, %B %-d, %Y at
                         %-H:%M %p') }}
+                        {% endif %}
+
                     </div>
                 </div>
                 <div class="col-2 blog-right-container">

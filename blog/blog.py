@@ -25,14 +25,18 @@ def index():
 
 @blog.route("/<subject>/", subdomain = "blog")
 @blog.route("/<subject>/<id>", subdomain="blog")
-def investing(subject: str = None, id: str = None):
+def page(subject: str = None, id: str = None):
     try:
+        last_modified = None
         if not id:
             id = DEFAULT_PAGE
         key = f'{BASE_ROUTE}{subject}/{id}.md'
-        page_content = markdown(get_object_content(BUCKET, key))
-        document = get_object(BUCKET, key)
-        last_modified = document['LastModified']
+        if object_exists(BUCKET, key):
+            page_content = markdown(get_object_content(BUCKET, key))
+            document = get_object(BUCKET, key)
+            last_modified = document['LastModified']
+        else:
+            raise Exception(f"{key} : Page not found.")
     except Exception as e:
         print(e)
         page_content = "Uh oh! Something isn't right. Please try again later."
