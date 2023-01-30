@@ -1,0 +1,18 @@
+{% for page in submenu %}
+
+{% if page == "root" %}
+{% include "blog_menu_root.html" with context %}
+{% else %}
+
+<li class="dropdown">
+    <a id="{{ page }}-dropdown" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{{
+        page }}</a>
+    <ul class="dropdown-menu" aria-labelledby="{{ page }}-dropdown">
+        {% set submenu = submenu[page] %}
+        {% include "blog_menu_sub.html" with context %}
+    </ul>
+</li>
+
+{% endif %}
+
+{% endfor %}

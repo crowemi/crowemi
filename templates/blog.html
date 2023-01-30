@@ -5,7 +5,7 @@
 
 <body>
     <div class="container-fluid">
-        <div class="blog-web-container">
+        <div class="blog-web-container d-none d-sm-block">
             <div class="row">
                 <div class="col-2 blog-left-container">
                     <div class="blog-top-left-panel text-center" style="padding: 25px 0 0 0">
@@ -15,25 +15,31 @@
                             <p style="padding:20px">Andy Crowe</p>
                         </a>
                     </div>
-                    <div class="blog-bottom-left-panel">
-                        <nav class="nav flex-column">
-                            <a href="{{ url_for('blog.index') }}" class="nav-link">
-                                home
-                            </a>
-                            <a href="{{ url_for('blog.page', subject='investing') }}" class="nav-link">
-                                investing
-                            </a>
-                            <a href="{{ url_for('blog.page', subject='finance') }}" class="nav-link">
-                                finance
-                            </a>
-                            <a href="{{ url_for('blog.page', subject='tutorials') }}" class="nav-link">
-                                tutorials
-                            </a>
-                        </nav>
-                    </div>
                 </div>
                 <div class="col-8 blog-middle-container">
-                    <div class="blog-top-page-content">
+                    <div class="col-12 blog-top-page-menu">
+                        <div class="btn-group">
+                            <a class="btn" href="{{ url_for('blog.index') }}">
+                                home
+                            </a>
+                        </div>
+                        {% for subject in subjects %}
+                        <div class="btn-group">
+                            <a class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ subject['name'] }}
+                            </a>
+                            <ul class="dropdown-menu">
+                                {% if subject['paths'] | length > 0 %}
+
+                                {% set submenu = subject['paths'] %}
+                                {% include "blog_menu_sub.html" with context %}
+
+                                {% endif %}
+                            </ul>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="col-12 blog-top-page-content">
                         {{ page_content | safe }}
 
                         {% if last_modified %}
@@ -54,10 +60,62 @@
                 </div>
             </div>
         </div>
-        <div class="blog-mobile-container">
+        <div class="blog-mobile-container d-sm-none">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-4 text-center align-middle">
+                        <a href="{{ url_for('crowemi.index') }}">
+                            <img src="{{ url_for('static', filename='img/memoji.png') }}" style="height:100px"
+                                class="img-fluid rounded" alt="Andy Crowe"></img>
+                        </a>
+                    </div>
+                    <div class="col-8">
+                        <div class="col-12">
+                            <div class="blog-mobile-name">Andy Crowe</div>
+                        </div>
+                        <div class="col-12">
+                            <ul class="list-social list-group list-group-horizontal">
+                                <li class="list-item-social">
+                                    <a href="https://www.linkedin.com/in/crowemi/" target="_new"><i
+                                            class="fab fa-linkedin fa-2x"></i></a>
+                                </li>
+                                <li class="list-item-social">
+                                    <a href="https://github.com/crowemi" target="_new">
+                                        <i class="fab fa-github fa-2x"></i>
+                                    </a>
+                                </li>
+                                <li class="list-item-social">
+                                    <a href="https://instagram.com/crowemi" target="_new"><i
+                                            class="fab fa-instagram fa-2x"></i></a>
+                                </li>
+                                <li class="list-item-social">
+                                    <a href="https://twitter.com/therealcrowemi" target="_new"><i
+                                            class="fab fa-twitter fa-2x"></i></a>
+                                </li>
+                                <li class="list-item-social">
+                                    <a href="https://www.strava.com/athletes/crowemi" target="_new"><i
+                                            class="fab fa-strava fa-2x"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                {% if last_modified %}
+                <div class="col-12t text-center date-container-mobile">
+                    <i class="fa-solid fa-calendar-days"></i> {{ last_modified.strftime('%A, %B %-d, %Y at %-H:%M
+                    %p') }}
+                </div>
+                {% endif %}
+                <div class="col-12 content-container-mobile">
+                    {{ page_content | safe }}
+                </div>
+            </div>
         </div>
-
     </div>
+
+    <!-- footer  -->
+    {% include "javascript.html" %}
 </body>
 
 </html>
