@@ -3,5 +3,6 @@ Flask == 2.0.0
 uwsgi == 2.0.21
 wheel == 0.38.4
 markdown == 3.4.1
+markdown2 == 2.4.8
 boto3 == 1.26.16
 pygments == 2.14.0
