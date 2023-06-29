@@ -146,7 +146,32 @@ body {
   height: 60vh;
 }
 
+.blog-top-page-menu {
+  padding: 15px;
+}
+
 .blog-bottom-page-content {
   padding: 15px;
   height: 40vh;
+}
+
+.blog-mobile-name {
+  padding: 20px 5px 5px 5px;
+  font-size: 7.5vw;
+}
+
+.date-container-mobile {
+  padding: 20px 0 20px 0;
+}
+
+.content-container-mobile {
+  padding: 10px;
+}
+
+.list-social {
+  list-style-type: none;
+}
+
+.list-item-social {
+  padding: 5px 5px 20px 5px
 }
