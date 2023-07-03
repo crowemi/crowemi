@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+{% include "header.html" %}
+
+<body class="blog">
+    <div class="main-container">
+
+        {% include "blog_nav.html" %}
+        <div class="container-fluid" style="padding-bottom: 20px; background-color:#F0F0F0">
+            <div style="padding:25px">
+                {{ page_content | safe }}
+            </div>
+        </div>
+        <div class="container">
+            <div class="row" style="padding-top: 10px;">
+
+                {% for subject in subjects|sort(attribute='name') %}
+                <div class="col-lg" style="padding-top: 15px;">
+                    <h4><i class="{{ subject['icon'] }}" style="padding-right:10px"></i> {{ subject['name'] }}</h4>
+                    <div class="col-lg">
+                        {% for path in subject['paths']|sort(attribute='paths') %}
+                        {% if path == 'root' %}
+                        {% for page in subject['paths'][path]|sort(attribute='0') %}
+                        <div><a
+                                href="{{ url_for('blog.page', subject=subject['name'], id=page[1]) }}">{{page[0].split('.')[0]}}</a>
+                        </div>
+                        {% endfor %}
+                        <hr>
+                        {% else%}
+                            <div class="card" style="margin-bottom:10px">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="{{ url_for('blog.page', subject=subject['name'], id=subject['paths'][path].get('base_route', None), base=[True]) }}">{{path}}</a></h5>
+                                {% if subject['paths'][path].get('metadata', None) %}
+                                <p class="card-text">{{subject['paths'][path]['metadata'].description}}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <!-- footer  -->
+        {% include "footer.html" %}
+    </div>
+</body>
+
+</html>
