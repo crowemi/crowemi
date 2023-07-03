@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+{% include "header.html" %}
+
+<body class="blog">
+
+    {% include "blog_nav.html" %}
+    <div class="main-container">
+
+        <div class="container">
+            <div class="row" style="padding-top: 10px;">
+
+                {% for path in paths|sort() if not path == "metadata" %}
+                {% if path == 'root' %}
+                {% for page in paths[path]|sort(attribute='0') if not page[0] == "_metadata.md" %}
+                <div><a href="{{ url_for('blog.page', subject=subject, id=page[1]) }}">{{page[0].split('.')[0]}}</a>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="col-lg" style="padding-top: 15px;">
+                    <div class="col-lg">
+                        <div class="card" style="margin-bottom:10px">
+                            <div class="card-body">
+                                <h5 class="card-title"><a
+                                        href="{{ url_for('blog.page', subject=subject, id=paths[path].get('base_route', None), base=[True]) }}">{{path}}</a>
+                                </h5>
+                                {% if paths[path].get('metadata', None) %}
+                                <p class="card-text">{{paths[path].get('metadata', None).description}}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        {% include "footer.html" %}
+    </div>
+
+</body>
+
+</html>

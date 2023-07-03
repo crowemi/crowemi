@@ -1,6 +1,0 @@
-{% for root_page in submenu[page] %}
-<li>
-    <a class="dropdown-item" href="{{ url_for('blog.page', subject=subject['name'], id=root_page[1]) }}">{{
-        root_page[0].split('.')[0] }}</a>
-</li>
-{% endfor %}

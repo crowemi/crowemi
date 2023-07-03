@@ -33,7 +33,6 @@ dictConfig(
 
 
 app = Flask(__name__, subdomain_matching=True)
-
 app.config["SERVER_NAME"] = os.getenv("server_name")
 
 app.register_blueprint(crowemi)

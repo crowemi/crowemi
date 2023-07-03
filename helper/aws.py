@@ -1,5 +1,6 @@
 import base64
 import boto3
+import json
 
 resource = boto3.resource('s3')
 client = boto3.client('s3')
@@ -26,7 +27,10 @@ def object_exists(bucket: str, key: str):
     ret = client.list_objects_v2(Bucket=bucket, Prefix=key)
     return True if ret['KeyCount'] > 0 else False
 
-def parse_path(keys: list, prefix: str) -> object:
+def parse_path(keys: list, prefix: str, bucket: str) -> object:
+    """
+
+    """
     paths = {}
 
     for key in keys:
@@ -36,22 +40,41 @@ def parse_path(keys: list, prefix: str) -> object:
         # traverse file structure
         i = 0
         current_position = paths
+
+
+
         while i < len(post_prefix_paths):
             current_path = post_prefix_paths[i]
             if len(current_path.split('.')) > 1:
                 # page
                 if "root" in current_position:
-                    current_position["root"].append([current_path, base64.b64encode(bytes(post_prefix, 'utf-8'))])
+                    if current_path == "_metadata.md":
+                        write_metadata(bucket, key, current_position)
+                    current_position["root"].append([current_path, base64.b64encode(bytes(key['Key'], 'utf-8'))])
                 else:
                     root = list()
-                    root.append([current_path, base64.b64encode(bytes(post_prefix, 'utf-8'))])
-                    current_position["root"] = root
+                    if current_path == "_metadata.md":
+                        write_metadata(bucket, key, current_position)
+                    else:
+                        root.append([current_path, base64.b64encode(bytes(key['Key'], 'utf-8'))])
+                        current_position["root"] = root
             else:
                 if current_path in current_position:
                     current_position = current_position[current_path]
                 else:
-                    current_position[current_path] = {}
+                    base_path: str = prefix
+                    for path_i, path_v in enumerate(post_prefix_paths):
+                        if path_i <= post_prefix_paths.index(current_path):
+                            base_path += path_v + "/"
+                    # creates a new path, sets route
+                    current_position[current_path] = { "base_route": base64.b64encode(bytes(base_path, 'utf-8')) }
                     current_position = current_position[current_path]
             i += 1
 
     return paths
+
+def get_path():
+    pass
+
+def write_metadata(bucket, key, current_position):
+    current_position["metadata"] = json.loads(get_object_content(bucket, key['Key']))

@@ -1,0 +1,52 @@
+<div class="blog-mobile-container d-sm-none">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-4 text-center align-middle">
+                <a href="{{ url_for('crowemi.index') }}">
+                    <img src="{{ url_for('static', filename='img/memoji.png') }}" style="height:100px"
+                        class="img-fluid rounded" alt="Andy Crowe"></img>
+                </a>
+            </div>
+            <div class="col-8">
+                <div class="col-12">
+                    <div class="blog-mobile-name">Andy Crowe</div>
+                </div>
+                <div class="col-12">
+                    <ul class="list-social list-group list-group-horizontal">
+                        <li class="list-item-social">
+                            <a href="https://www.linkedin.com/in/crowemi/" target="_new"><i
+                                    class="fab fa-linkedin fa-2x"></i></a>
+                        </li>
+                        <li class="list-item-social">
+                            <a href="https://github.com/crowemi" target="_new">
+                                <i class="fab fa-github fa-2x"></i>
+                            </a>
+                        </li>
+                        <li class="list-item-social">
+                            <a href="https://instagram.com/crowemi" target="_new"><i
+                                    class="fab fa-instagram fa-2x"></i></a>
+                        </li>
+                        <li class="list-item-social">
+                            <a href="https://twitter.com/therealcrowemi" target="_new"><i
+                                    class="fab fa-twitter fa-2x"></i></a>
+                        </li>
+                        <li class="list-item-social">
+                            <a href="https://www.strava.com/athletes/crowemi" target="_new"><i
+                                    class="fab fa-strava fa-2x"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr />
+        {% if last_modified %}
+        <div class="col-12t text-center date-container-mobile">
+            <i class="fa-solid fa-calendar-days"></i> {{ last_modified.strftime('%A, %B %-d, %Y at %-H:%M
+            %p') }}
+        </div>
+        {% endif %}
+        <div class="col-12 content-container-mobile">
+            {{ page_content | safe }}
+        </div>
+    </div>
+</div>
