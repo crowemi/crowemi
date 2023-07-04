@@ -59,11 +59,17 @@ def page(subject: str = None, id: str = None):
             last_modified = document["LastModified"]
         else:
             # render template for subpage
+            # TODO: if the path contains about.md, display that in a top section.
             paths = parse_path(list_objects(key, BUCKET)["Contents"], key, BUCKET)
+            _metadata = get_object_content(BUCKET, f"{key}_metadata.md")
+            if _metadata:
+                _metadata = json.loads(_metadata)
+
             return render_template(
                 "blog_folder.html",
                 last_modified=last_modified,
                 subject=subject,
+                _metadata=_metadata,
                 paths=paths,
                 referrer=request.referrer
             )

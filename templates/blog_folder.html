@@ -10,7 +10,9 @@
 
         <div class="container">
             <div class="row" style="padding-top: 10px;">
-
+                <h2>{{_metadata.name}}</h2>
+                <p>{{_metadata.get('long_description', None)}}</p>
+                <hr class="my-4">
                 {% for path in paths|sort() if not path == "metadata" %}
                 {% if path == 'root' %}
                 {% for page in paths[path]|sort(attribute='0') if not page[0] == "_metadata.md" %}
