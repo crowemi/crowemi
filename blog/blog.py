@@ -13,10 +13,11 @@ BUCKET = "crowemi"
 # then display a default page if not.
 DEFAULT_PAGE = "about"
 BASE_ROUTE = "Obsidian/blog/"
+# TODO: make this dynamic
 SUBJECTS = [
     {"name": "investing", "paths": list(), "icon": "fa-solid fa-arrow-trend-up"},
     {"name": "finance", "paths": list(), "icon": "fa-solid fa-sack-dollar"},
-    {"name": "fitness", "paths": list(), "icon": "fa-solid fa-person-running"},
+    {"name": "projects", "paths": list(), "icon": "fa-solid fa-screwdriver-wrench"},
     {"name": "tutorials", "paths": list(), "icon": "fa-solid fa-code"},
 ]
 MARKDOWN_EXTENSIONS = ["codehilite", "fenced_code"]
