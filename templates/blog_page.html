@@ -15,7 +15,7 @@
             
         </div>
     </div>
-    <div class="col-8" style="padding:20px">
+    <div class="blog-page col-8">
         {{ page_content | safe }}
         <hr class="my-4">
         {% if last_modified %}
@@ -23,7 +23,6 @@
         %-H:%M %p') }}
         {% endif %}
     </div>
-    <div class="col-2"></div>
     </div>
 
     {% include "footer.html" %}

@@ -176,6 +176,35 @@ body {
   padding: 5px 5px 20px 5px
 }
 
+.blog-nav {
+  background-color: #111E6C; 
+  color:white;
+}
+.blog-nav a {
+  color: white;
+  text-decoration: none;
+}
 .blog a {
   text-decoration: none;
+}
+.blog-page {
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+.blog-page a:hover {
+  color: #2039CC;
+  text-decoration: dotted;
+}
+.blog-page img {
+  max-width: 100%; /* Ensure the image does not exceed the width of the container */
+  max-height: 100%; /* Ensure the image does not exceed the height of the container */
+  display: block; /* Remove any default spacing */
+}
+.blog-page code {
+  padding:2px;
+}
+a {
+  color: #111E6C;
+  text-decoration: none;
+  text-align: center;
 }
