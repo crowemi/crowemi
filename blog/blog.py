@@ -1,4 +1,5 @@
 import os
+from datetime import timedelta
 
 from flask import Blueprint, render_template, request
 from markdown import markdown
@@ -43,7 +44,10 @@ def page(subject: str = None, id: str = None):
     try:
         is_base = request.args.get('base', default = False, type = bool)
         get_paths()
+
         last_modified = None
+        pst = timedelta(hours=-7)
+
         if not id:
             id = DEFAULT_PAGE
             key = f"{BASE_ROUTE}{subject}/{id}.md"
@@ -57,7 +61,7 @@ def page(subject: str = None, id: str = None):
             )
 
             document = get_object(BUCKET, key)
-            last_modified = document["LastModified"]
+            last_modified = document["LastModified"] + pst # convert UTC to PST
         else:
             # render template for subpage
             # TODO: if the path contains about.md, display that in a top section.
