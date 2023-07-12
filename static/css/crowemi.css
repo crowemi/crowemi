@@ -188,8 +188,12 @@ body {
   text-decoration: none;
 }
 .blog-page {
-  padding: 20px;
-  background-color: #f2f2f2;
+  padding: 20px 50px 20px 20px;
+  background-color: #D4D4DC;
+}
+.blog-page a {
+  color: #1D4AFB;
+  text-decoration: dashed;
 }
 .blog-page a:hover {
   color: #2039CC;
@@ -200,11 +204,13 @@ body {
   max-height: 100%; /* Ensure the image does not exceed the height of the container */
   display: block; /* Remove any default spacing */
 }
-.blog-page code {
-  padding:2px;
-}
 a {
   color: #111E6C;
   text-decoration: none;
   text-align: center;
+}
+
+.codehilite {
+  border-radius: 10px;
+  padding: 20px;
 }
