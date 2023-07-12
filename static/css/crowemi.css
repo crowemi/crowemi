@@ -189,7 +189,7 @@ body {
 }
 .blog-page {
   padding: 20px 50px 20px 20px;
-  background-color: #D4D4DC;
+  background-color: #f2f2f2;
 }
 .blog-page a {
   color: #1D4AFB;
@@ -212,5 +212,5 @@ a {
 
 .codehilite {
   border-radius: 10px;
-  padding: 20px;
+  padding: 20px 20px 10px 20px;
 }
