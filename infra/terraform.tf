@@ -3,7 +3,7 @@ terraform {
     organization = "crowemi-io"
 
     workspaces {
-      name = "crowemi-io"
+      name = "crowemi"
     }
   }
   required_providers {
