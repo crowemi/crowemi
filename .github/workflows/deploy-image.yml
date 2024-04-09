@@ -10,7 +10,7 @@ env:
   SERVICE_ACCOUNT_KEY: ${{ secrets.GCP_GITHUB_KEY }}
   IMAGE_NAME: "crowemi"
   ARTIFACT_REGISTRY: "us-west1-docker.pkg.dev"
-  REGISTRY_NAME: "crowemi"
+  REGISTRY_NAME: "crowemi-io"
   TF_CLOUD_ORGANIZATION: "crowemi"
   TF_API_TOKEN: "${{ secrets.TF_TOKEN }}"
   TF_WORKSPACE: "${{ secrets.TF_WORKSPACE }}"
