@@ -7,7 +7,7 @@ env:
   TF_CLOUD_ORGANIZATION: "crowemi-io"
   TF_API_TOKEN: "${{ secrets.TF_TOKEN }}"
   TF_WORKSPACE: "${{ secrets.TF_WORKSPACE }}"
-  CONFIG_DIRECTORY: "./infra"
+  CONFIG_DIRECTORY: "./"
 
 jobs:
   terraform:
