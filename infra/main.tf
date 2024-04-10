@@ -17,10 +17,6 @@ resource "google_cloud_run_v2_service" "crowemi" {
     template {
         containers {
             image = "us-west1-docker.pkg.dev/${local.project}/crowemi-io/${local.service}:${var.docker_image_tag}"
-
-            ports {
-                container_port = 3000
-            }
         }
         service_account = google_service_account.service_account.email
         vpc_access{
