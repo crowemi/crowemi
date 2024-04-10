@@ -16,7 +16,7 @@ resource "google_cloud_run_v2_service" "crowemi" {
     launch_stage = "BETA"
     template {
         containers {
-            image = "us-west1-docker.pkg.dev/${local.project}/crowemi/${local.service}:${var.docker_image_tag}"
+            image = "us-west1-docker.pkg.dev/${local.project}/crowemi-io/${local.service}:${var.docker_image_tag}"
 
             ports {
                 container_port = 3000
