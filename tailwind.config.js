@@ -10,6 +10,14 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    colors: {
+      white: '#FFFFFF',
+      one: '#011C26',
+      two: '#2E4D59',
+      three: '#406973',
+      four: '#58878C',
+      five: '#0B2624'
+    }
   },
   plugins: [],
 }
