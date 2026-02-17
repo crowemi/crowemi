@@ -28,13 +28,13 @@ const blogPosts = [
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] dark:bg-gray-900">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-4xl">
+    <div className="flex flex-col min-h-screen font-[family-name:var(--font-geist-sans)] bg-jet">
+      <main className="flex-1 flex flex-col gap-8 items-center sm:items-start w-full max-w-4xl mx-auto px-8 py-20 sm:px-20">
         <div className="flex flex-col items-center sm:items-start text-center sm:text-left mb-8">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl mb-4">
-            Welcome to <span className="text-indigo-600 dark:text-indigo-400">Crowemi</span>
+          <h1 className="text-4xl font-bold tracking-tight text-cream sm:text-6xl mb-4">
+            Welcome to <span className="text-khaki">Crowemi</span>
           </h1>
-          <p className="text-lg leading-8 text-gray-600 dark:text-gray-300">
+          <p className="text-lg leading-8 text-khaki">
             Exploring code, creativity, and the digital frontier.
           </p>
         </div>
