@@ -16,6 +16,7 @@ env:
 
 jobs:
   setup-build-publish:
+    environment: dev
     runs-on: ubuntu-latest
 
     steps:
