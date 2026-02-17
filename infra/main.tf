@@ -1,7 +1,7 @@
 locals {
-    region  = "us-west1"
+    region  = var.gcp_region
     service = "crowemi"
-    project = var.google_project_id
+    project = var.gcp_project_id
 }
 resource "google_service_account" "service_account" {
     account_id   = "srv-${local.service}"
