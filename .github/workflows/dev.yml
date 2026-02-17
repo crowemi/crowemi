@@ -34,6 +34,7 @@ jobs:
         run: gcloud auth configure-docker us-west1-docker.pkg.dev
 
   terraform:
+    environment: dev
     needs: setup-build-publish
     name: "Terraform Apply"
     runs-on: ubuntu-latest
