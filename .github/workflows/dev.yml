@@ -11,8 +11,8 @@ env:
   GCP_REGISTRY_NAME: ${{ secrets.GCP_REGISTRY_NAME }}
   GCP_IMAGE_NAME: "crowemi-webhooks-dev"
   TF_CLOUD_ORGANIZATION: "${{ secrets.TF_CLOUD_ORGANIZATION }}"
-  TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
-  TF_WORKSPACE: "${{ secrets.TF_WORKSPACE }}"
+  TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
+  TF_WORKSPACE: ${{ secrets.TF_WORKSPACE }}
 
 jobs:
   setup-build-publish:
