@@ -16,7 +16,7 @@ resource "google_cloud_run_v2_service" "this" {
     launch_stage = "BETA"
     template {
         containers {
-            image = "us-west1-docker.pkg.dev/${local.project}/crowemi-io/${local.service}:${var.docker_image_tag}"
+            image = "us-west1-docker.pkg.dev/${local.project}/${local.project}/${local.service}:${var.docker_image_tag}"
         }
         service_account = google_service_account.this.email
         vpc_access{

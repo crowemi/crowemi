@@ -1,55 +1,55 @@
 import BlogCard from "./ui/BlogCard";
 import Footer from "./ui/Footer";
+import Header from "./ui/Header";
 
 const blogPosts = [
   {
     id: 1,
-    title: "The Art of Clean Code",
-    createdDate: "2023-10-24",
-    author: "Scooter",
-    content: "Clean code is not just about following rules; it's about communicating intent. When we write code that is easy to read and understand, we are respecting our future selves and our colleagues. In this post, we explore the principles of clean code and how to apply them in your daily work."
+    title: "Building a Modern Workspace: Tools and Tips for Productivity",
+    author: "Crowemi",
+    date: "February 15, 2026",
+    blurb: "Discover the essential tools and strategies I use to create an efficient and inspiring workspace. From desk setup to digital tools, learn how to optimize your environment for maximum productivity and creativity.",
+    image: "https://images.unsplash.com/photo-1621743018966-29194999d736?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3b3Jrc3BhY2UlMjBkZXNrfGVufDF8fHx8MTc3MTQ3NDY3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
     id: 2,
-    title: "Navigating the Cloud",
-    createdDate: "2023-11-15",
+    title: "The Art of Mindful Work: Finding Balance in the Digital Age",
     author: "Crowemi",
-    content: "Cloud computing has revolutionized the way we build and deploy applications. From serverless functions to managed databases, the cloud offers a plethora of tools to scale your business. Join us as we dive deep into the services offered by major cloud providers and how to leverage them effectively."
+    date: "February 10, 2026",
+    blurb: "In our always-connected world, finding balance is more important than ever. Explore techniques for mindful work, including how to disconnect, set boundaries, and create space for deep thinking and creativity.",
+    image: "https://images.unsplash.com/photo-1650735311937-1876825e971b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBsYXB0b3AlMjBub3RlYm9va3xlbnwxfHx8fDE3NzE0NzgxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
     id: 3,
-    title: "Designing for the User",
-    createdDate: "2023-12-05",
+    title: "Lessons from Nature: How Natural Patterns Inspire Design",
     author: "Scooter",
-    content: "User experience is at the heart of every successful product. Understanding your users' needs and behaviors is crucial for designing intuitive and engaging interfaces. We'll discuss user-centered design methodologies and share tips on creating delightful experiences that keep users coming back for more."
-  }
+    date: "February 5, 2026",
+    blurb: "Nature has been the greatest designer for billions of years. Learn how natural patterns, from fractals to the golden ratio, can inform and enhance our approach to digital design and user experience.",
+    image: "https://images.unsplash.com/photo-1600257729950-13a634d32697?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuYXR1cmUlMjBsYW5kc2NhcGUlMjBtb3VudGFpbnN8ZW58MXx8fHwxNzcxNDc0NTcyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+  },
 ];
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen font-[family-name:var(--font-geist-sans)] bg-jet">
-      <main className="flex-1 flex flex-col gap-8 items-center sm:items-start w-full max-w-4xl mx-auto px-8 py-20 sm:px-20">
-        <div className="flex flex-col items-center sm:items-start text-center sm:text-left mb-8">
-          <h1 className="text-4xl font-bold tracking-tight text-cream sm:text-6xl mb-4">
-            Welcome to <span className="text-khaki">Crowemi</span>
-          </h1>
-          <p className="text-lg leading-8 text-khaki">
-            Exploring code, creativity, and the digital frontier.
-          </p>
-        </div>
+    <div className="min-h-screen bg-gray-50">
+      <Header />
 
-        <div className="grid grid-cols-1 gap-8 w-full place-items-center">
+      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <h2 className="mb-8">Latest Posts</h2>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {blogPosts.map((post) => (
             <BlogCard
               key={post.id}
               title={post.title}
-              createdDate={post.createdDate}
               author={post.author}
-              content={post.content}
+              date={post.date}
+              blurb={post.blurb}
+              image={post.image}
             />
           ))}
         </div>
       </main>
+
       <Footer />
     </div>
   );
