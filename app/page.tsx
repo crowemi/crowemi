@@ -1,5 +1,4 @@
-import Image from "next/image";
-import BlogPreview from "./ui/BlogPreview";
+import BlogCard from "./ui/BlogCard";
 import Footer from "./ui/Footer";
 
 const blogPosts = [
@@ -41,7 +40,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 gap-8 w-full place-items-center">
           {blogPosts.map((post) => (
-            <BlogPreview 
+            <BlogCard
               key={post.id}
               title={post.title}
               createdDate={post.createdDate}

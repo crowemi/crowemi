@@ -8,7 +8,7 @@ interface BlogPreviewProps {
   blurbLength?: number;
 }
 
-const BlogPreview: React.FC<BlogPreviewProps> = ({ 
+const BlogCard: React.FC<BlogPreviewProps> = ({ 
   title, 
   createdDate, 
   author, 
@@ -54,4 +54,4 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
   );
 };
 
-export default BlogPreview;
+export default BlogCard;
