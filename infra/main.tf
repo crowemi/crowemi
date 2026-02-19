@@ -9,25 +9,25 @@ resource "google_service_account" "this" {
     description  = "A service account for ${local.service}"
 }
 
-# resource "google_cloud_run_v2_service" "crowemi" {
-#     name     = local.service
-#     location = local.region
-#     ingress = "INGRESS_TRAFFIC_ALL"
-#     launch_stage = "BETA"
-#     template {
-#         containers {
-#             image = "us-west1-docker.pkg.dev/${local.project}/crowemi-io/${local.service}:${var.docker_image_tag}"
-#         }
-#         service_account = google_service_account.service_account.email
-#         vpc_access{
-#             network_interfaces {
-#                 network = "crowemi-io-network" # TODO: ref data
-#                 subnetwork = "crowemi-io-subnet-01" # TODO: ref data
-#             }
-#             egress = "ALL_TRAFFIC"
-#         }
-#     }
-# }
+resource "google_cloud_run_v2_service" "this" {
+    name     = local.service
+    location = local.region
+    ingress = "INGRESS_TRAFFIC_ALL"
+    launch_stage = "BETA"
+    template {
+        containers {
+            image = "us-west1-docker.pkg.dev/${local.project}/crowemi-io/${local.service}:${var.docker_image_tag}"
+        }
+        service_account = google_service_account.service_account.email
+        vpc_access{
+            network_interfaces {
+                network = "projects/crowemi-io-${var.env}/global/networks/crowemi-io-${var.env}-network" # TODO: ref data
+                subnetwork = "projects/crowemi-io-${var.env}/regions/${var.gcp_region}/subnetworks/crowemi-io-${var.env}-subnet-01" # TODO: ref data
+            }
+            egress = "ALL_TRAFFIC"
+        }
+    }
+}
 data "google_iam_policy" "noauth" {
     binding {
         role = "roles/run.invoker"
@@ -37,13 +37,13 @@ data "google_iam_policy" "noauth" {
     }
 }
 
-# resource "google_cloud_run_service_iam_policy" "noauth" {
-#     location    = google_cloud_run_v2_service.crowemi.location
-#     project     = google_cloud_run_v2_service.crowemi.project
-#     service     = google_cloud_run_v2_service.crowemi.name
+resource "google_cloud_run_service_iam_policy" "noauth" {
+    location    = google_cloud_run_v2_service.this.location
+    project     = google_cloud_run_v2_service.this.project
+    service     = google_cloud_run_v2_service.this.name
 
-#     policy_data = data.google_iam_policy.noauth.policy_data
-# }
+    policy_data = data.google_iam_policy.noauth.policy_data
+}
 
 # resource "google_cloud_run_domain_mapping" "crowemi" {
 #     location = "us-west1"
@@ -54,6 +54,6 @@ data "google_iam_policy" "noauth" {
 #     }
 
 #     spec {
-#         route_name = google_cloud_run_v2_service.crowemi.name
+#         route_name = google_cloud_run_v2_service.this.name
 #     }
 # }
