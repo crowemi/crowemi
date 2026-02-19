@@ -18,7 +18,7 @@ resource "google_cloud_run_v2_service" "this" {
         containers {
             image = "us-west1-docker.pkg.dev/${local.project}/crowemi-io/${local.service}:${var.docker_image_tag}"
         }
-        service_account = google_service_account.service_account.email
+        service_account = google_service_account.this.email
         vpc_access{
             network_interfaces {
                 network = "projects/crowemi-io-${var.env}/global/networks/crowemi-io-${var.env}-network" # TODO: ref data
