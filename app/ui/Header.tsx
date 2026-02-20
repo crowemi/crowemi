@@ -9,7 +9,7 @@ export default function Header() {
             alt="Profile"
             className="h-24 w-24 rounded-full object-cover ring-4 ring-gray-100"
           />
-          <h1 className="mt-4">Crowemi</h1>
+          <h1 className="mt-4">Andy Crowe</h1>
           <p className="mt-2 max-w-2xl text-gray-600">
             Writer, developer, and creator. Exploring code, creativity, and the
             digital frontier. Welcome to my corner of the internet where I share
