@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TF_VAR_docker_image_tag: "\"${{ github.sha }}\""
-      TF_VAR_env: "\"dev\""
+      TF_VAR_env: "\"prod\""
     permissions:
       contents: read
     steps:
