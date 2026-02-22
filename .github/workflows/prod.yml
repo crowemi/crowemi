@@ -34,7 +34,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t us-west1-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/${{ env.GCP_PROJECT_ID }}/${{ env.GCP_IMAGE_NAME }}:${{ github.sha }} -t dev .
+          docker build -t us-west1-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/${{ env.GCP_PROJECT_ID }}/${{ env.GCP_IMAGE_NAME }}:${{ github.sha }} -t prod .
           docker push  us-west1-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/${{ env.GCP_PROJECT_ID }}/${{ env.GCP_IMAGE_NAME }}:${{ github.sha }}
 
   terraform:

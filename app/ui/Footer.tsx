@@ -1,90 +1,135 @@
-import React from 'react';
+'use client';
 
-const Footer = () => {
-  const socialLinks = [
-    {
-      name: 'X',
-      href: '#',
-      icon: (
-        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8131L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z" />
-        </svg>
-      ),
-    },
-    {
-      name: 'LinkedIn',
-      href: '#',
-      icon: (
-        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
-        </svg>
-      ),
-    },
-    {
-      name: 'GitHub',
-      href: '#',
-      icon: (
-        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-        </svg>
-      ),
-    },
-  ];
+import { Github, Linkedin, Mail, Threads, Twitter } from 'iconoir-react';
+import { useState } from 'react';
 
-  const navLinks = [
-    { name: 'About', href: '#' },
-    { name: 'Blog', href: '#' },
-    { name: 'Projects', href: '#' },
-  ];
+import { subscribe } from '../lib/newsletter';
+
+export default function Footer() {
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+  const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!email.trim()) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setError('');
+
+    const result = await subscribe(email);
+    setIsSubmitting(false);
+
+    if (!result.success) {
+      setError('error' in result ? result.error : 'Unable to subscribe right now.');
+      return;
+    }
+
+    setSubscribed(true);
+    setEmail('');
+    setTimeout(() => setSubscribed(false), 3000);
+  };
 
   return (
-    <footer className="w-full border-t border-carafe/40">
-      <div className="mx-auto max-w-4xl px-8 py-10 sm:px-20">
-        {/* Top section: brand + nav + socials in a single row on desktop */}
-        <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between">
-          {/* Brand */}
-          <span className="text-lg font-semibold tracking-tight text-cream">
-            Crowemi
-          </span>
-
-          {/* Nav links */}
-          <nav className="flex items-center gap-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-sm text-khaki hover:text-cream transition-colors"
+    <footer className="border-t border-gray-200 bg-white">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid gap-8 md:grid-cols-2">
+          {/* Newsletter Section */}
+          <div>
+            <h3 className="mb-4">Subscribe to my newsletter</h3>
+            <p className="mb-4 text-gray-600">
+              Get the latest posts delivered right to your inbox.
+            </p>
+            <form onSubmit={handleSubscribe} className="flex gap-2">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  if (error) {
+                    setError('');
+                  }
+                }}
+                placeholder="Enter your email"
+                className="flex-1 rounded-md border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                required
+              />
+              <button
+                type="submit"
+                className="rounded-md bg-blue-600 px-6 py-2 text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+                disabled={isSubmitting}
               >
-                {link.name}
-              </a>
-            ))}
-          </nav>
+                {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+              </button>
+            </form>
+            {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
+            {subscribed && (
+              <p className="mt-2 text-sm text-green-600">
+                Thanks for subscribing!
+              </p>
+            )}
+          </div>
 
-          {/* Social icons */}
-          <div className="flex items-center gap-5">
-            {socialLinks.map((social) => (
+          {/* Social Links Section */}
+          <div className="flex flex-col items-start md:items-end">
+            <h3 className="mb-4">Connect with me</h3>
+            <div className="flex gap-4">
               <a
-                key={social.name}
-                href={social.href}
-                className="text-khaki hover:text-cream transition-colors"
+                href="https://x.com/realCrowemi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-gray-100 p-3 text-gray-600 transition-colors hover:bg-blue-100 hover:text-blue-600"
+                aria-label="Twitter"
               >
-                <span className="sr-only">{social.name}</span>
-                {social.icon}
+                <Twitter className="h-5 w-5" />
               </a>
-            ))}
+              <a
+                href="https://www.threads.com/@crowemi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-gray-100 p-3 text-gray-600 transition-colors hover:bg-black hover:text-white"
+                aria-label="Threads"
+              >
+                <Threads className="h-5 w-5" />
+              </a>
+              <a
+                href="https://github.com/crowemi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-gray-100 p-3 text-gray-600 transition-colors hover:bg-gray-800 hover:text-white"
+                aria-label="GitHub"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/crowemi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-gray-100 p-3 text-gray-600 transition-colors hover:bg-blue-600 hover:text-white"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                href="mailto:hello@crowemi.com"
+                className="rounded-full bg-gray-100 p-3 text-gray-600 transition-colors hover:bg-red-100 hover:text-red-600"
+                aria-label="Email"
+              >
+                <Mail className="h-5 w-5" />
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-8 flex flex-col items-center gap-2 text-xs text-khaki/60 sm:flex-row sm:justify-between">
+        <div className="mt-8 border-t border-gray-200 pt-8 text-center text-sm text-gray-500">
           <p>&copy; {new Date().getFullYear()} Crowemi. All rights reserved.</p>
-          <p>
-            Made with <span className="text-carafe">&#9829;</span> by Scooter
-          </p>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
