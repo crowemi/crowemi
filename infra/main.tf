@@ -10,6 +10,7 @@ resource "google_service_account" "this" {
 }
 
 resource "google_cloud_run_v2_service" "this" {
+  provider             = google-beta
   name                 = local.service
   location             = local.region
   ingress              = "INGRESS_TRAFFIC_ALL"

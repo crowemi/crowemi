@@ -1,8 +1,8 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'Crowemi',
-  description: 'Writer, developer, and creator.',
+  title: 'crowemi.com',
+  description: 'Believer, Builder, Writer',
 }
 
 export default function RootLayout({
