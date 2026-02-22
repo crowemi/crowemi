@@ -10,8 +10,14 @@ export default function Header() {
             className="h-24 w-24 rounded-full object-cover ring-4 ring-gray-100"
           />
           <h1 className="mt-4">Andy Crowe</h1>
-          <p className="mt-2 max-w-2xl text-gray-600">
-            Aspiring writer, engineer, and builder. Exploring faith, code, data, and the
+          <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-1 text-sm font-medium text-gray-700 ring-1 ring-gray-200">
+            <span>Believer</span>
+            <span className="text-gray-400">•</span>
+            <span>Builder</span>
+            <span className="text-gray-400">•</span>
+            <span>Writer</span>
+          </p>
+          <p className="mt-10 max-w-2xl text-gray-600">Exploring faith, code, data, and the
             digital frontier.
           </p>
 
