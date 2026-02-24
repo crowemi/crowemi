@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock } from "iconoir-react";
 
-import { getBlogPostById } from "../../data/blogPosts";
+import { getBlogPost } from "../../lib/blog";
 import Footer from "../../ui/Footer";
+
+export const dynamic = "force-dynamic";
 import Header from "../../ui/Header";
 
 interface BlogPostPageProps {
@@ -11,8 +13,8 @@ interface BlogPostPageProps {
   };
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = getBlogPostById(params.postId);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const post = await getBlogPost(params.postId);
 
   if (!post) {
     return (
@@ -76,12 +78,21 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
           </div>
 
-          <div className="mb-8 flex flex-wrap items-center gap-2">
-            
-          </div>
+          {post.tags.length > 0 && (
+            <div className="mb-8 flex flex-wrap items-center gap-2">
+              {post.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
 
           <div
-            className="space-y-4 [&_h3]:mt-8 [&_h3]:mb-4 [&_h3]:text-lg [&_h3]:font-medium [&_li]:leading-relaxed [&_p]:leading-relaxed [&_ul]:my-6 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6"
+            className="space-y-4 [&_h3]:mt-8 [&_h3]:mb-4 [&_h3]:text-lg [&_h3]:font-medium [&_li]:leading-relaxed [&_p]:leading-relaxed [&_ul]:my-6 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6 [&_details]:my-4 [&_summary]:cursor-pointer [&_summary]:font-medium"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         </article>
