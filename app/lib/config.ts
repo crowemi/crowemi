@@ -6,6 +6,7 @@ export interface FirestoreConfig {
   projectId: string
   clientEmail: string
   privateKey: string
+  gcsBucket?: string // Added for GCS bucket name
 }
 
 export interface NotionConfig {

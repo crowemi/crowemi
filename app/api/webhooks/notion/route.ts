@@ -115,9 +115,13 @@ export async function POST(request: NextRequest) {
   const signature = request.headers.get('x-notion-signature');
   const rawBody = await request.text();
 
-  if (!signature || !secretToken) {
-    console.warn('Missing Notion signature or secret token. Skipping validation.');
-  } else {
+  // Only enforce validation if a secret token is configured
+  if (secretToken) {
+    if (!signature) {
+      console.error('Missing Notion signature header. Rejecting request.');
+      return new NextResponse('Missing signature header', { status: 401 });
+    }
+
     const hmac = createHmac('sha256', secretToken);
     const computedSignature = `sha256=${hmac.update(rawBody).digest('hex')}`;
 
@@ -125,6 +129,10 @@ export async function POST(request: NextRequest) {
       console.error('Invalid signature');
       return new NextResponse('Invalid signature', { status: 401 });
     }
+    // If signature is valid, proceed
+  } else {
+    // If no secret token is configured, log a warning and skip validation
+    console.warn('No Notion secret token configured. Skipping signature validation.');
   }
 
   // 3. Event Handling
