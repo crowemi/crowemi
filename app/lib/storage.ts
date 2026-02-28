@@ -3,7 +3,8 @@ import axios from 'axios';
 import crypto from 'crypto';
 import path from 'path';
 
-// --- Configuration ---
+// IMPORTANT: Ensure 'axios' is installed as a dependency:
+// npm install axios or yarn add axios
 // Retrieve GCS bucket name from environment variable or config
 // IMPORTANT: Ensure GCS_BUCKET_NAME is set in your environment or config.ts
 // If not set, this function will log a warning and return the original URL.

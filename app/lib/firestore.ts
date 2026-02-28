@@ -64,8 +64,10 @@ export async function updateDocument(
   await db.collection(collection).doc(id).update(data)
 }
 
-
-export async function setDocument(collection: string, id: string, data: any): Promise<void> {
-  const docRef = doc(firestore, collection, id);
-  await setDoc(docRef, { ...data, updatedAt: serverTimestamp() }, { merge: true });
+export async function deleteDocument(
+  collection: string,
+  id: string
+): Promise<void> {
+  const db = await getFirestoreClient()
+  await db.collection(collection).doc(id).delete()
 }
