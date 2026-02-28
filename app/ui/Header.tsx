@@ -15,12 +15,8 @@ export default function Header() {
             <span className="text-gray-400">•</span>
             <span>Builder</span>
             <span className="text-gray-400">•</span>
-            <span>Writer</span>
+            <span>Blogger</span>
           </p>
-          <p className="mt-10 max-w-2xl text-gray-600">Exploring faith, code, data, and the
-            digital frontier.
-          </p>
-
         </div>
       </div>
     </header>

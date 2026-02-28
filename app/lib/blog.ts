@@ -30,12 +30,24 @@ function getPlainText(
   }
 }
 
-function formatDate(isoDate: string): string {
-  return new Date(isoDate).toLocaleDateString('en-US', {
+function formatDate(isoDate: string | undefined | null): string {
+  if (!isoDate) return ''
+  const d = new Date(isoDate)
+  if (isNaN(d.getTime())) return ''
+  return d.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   })
+}
+
+function getFileUrl(
+  property: PageObjectResponse['properties'][string] | undefined
+): string {
+  if (property?.type !== 'files') return ''
+  const file = property.files[0]
+  if (!file) return ''
+  return file.type === 'external' ? file.external.url : file.file.url
 }
 
 function mapPageToPost(page: PageObjectResponse): Omit<BlogPost, 'content'> {
@@ -51,11 +63,11 @@ function mapPageToPost(page: PageObjectResponse): Omit<BlogPost, 'content'> {
   let date = ''
   if (dateProperty?.type === 'date' && dateProperty.date?.start) {
     date = formatDate(dateProperty.date.start)
-  } else if (
-    props['Created time']?.type === 'created_time'
-  ) {
+  }
+  if (!date && props['Created time']?.type === 'created_time') {
     date = formatDate(props['Created time'].created_time)
-  } else {
+  }
+  if (!date) {
     date = formatDate(page.created_time)
   }
 
@@ -74,13 +86,13 @@ function mapPageToPost(page: PageObjectResponse): Omit<BlogPost, 'content'> {
     date,
     readTime: getPlainText(props['Read Time']),
     blurb: getPlainText(props['Blurb']),
-    image: props['Image']?.type === 'url' ? (props['Image'].url ?? '') : '',
+    image: getFileUrl(props['Image']),
     tags,
   }
 }
 
 export async function getBlogPosts(): Promise<Omit<BlogPost, 'content'>[]> {
-  const { notion } = getConfig()
+  const { notion } = await getConfig()
 
   const pages = await queryDatabase(notion.databaseId, {
     filter: {

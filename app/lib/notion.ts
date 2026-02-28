@@ -9,9 +9,9 @@ import { getConfig } from './config'
 
 let notionInstance: Client | null = null
 
-function getNotion(): Client {
+async function getNotion(): Promise<Client> {
   if (!notionInstance) {
-    const { notion } = getConfig()
+    const { notion } = await getConfig()
     notionInstance = new Client({ auth: notion.apiKey })
   }
 
@@ -23,7 +23,8 @@ let cachedDataSourceId: string | null = null
 async function getDataSourceId(databaseId: string): Promise<string> {
   if (cachedDataSourceId) return cachedDataSourceId
 
-  const db = await getNotion().databases.retrieve({ database_id: databaseId })
+  const notion = await getNotion()
+  const db = await notion.databases.retrieve({ database_id: databaseId })
   const fullDb = db as DatabaseObjectResponse
   if (!fullDb.data_sources?.length) {
     throw new Error(`No data sources found for database ${databaseId}`)
@@ -43,7 +44,8 @@ export async function queryDatabase(
 ) {
   const dataSourceId = await getDataSourceId(databaseId)
 
-  const response = await getNotion().dataSources.query({
+  const notion = await getNotion()
+  const response = await notion.dataSources.query({
     data_source_id: dataSourceId,
     ...(options?.filter && { filter: options.filter }),
     ...(options?.sorts && { sorts: options.sorts }),
@@ -54,7 +56,8 @@ export async function queryDatabase(
 }
 
 export async function getPage(pageId: string) {
-  return getNotion().pages.retrieve({ page_id: pageId })
+  const notion = await getNotion()
+  return notion.pages.retrieve({ page_id: pageId })
 }
 
 export async function getPageBlocks(
@@ -64,7 +67,8 @@ export async function getPageBlocks(
   let cursor: string | undefined
 
   do {
-    const response = await getNotion().blocks.children.list({
+    const notion = await getNotion()
+    const response = await notion.blocks.children.list({
       block_id: blockId,
       start_cursor: cursor,
     })

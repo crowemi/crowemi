@@ -1,5 +1,6 @@
 import * as fs from 'fs'
 import * as path from 'path'
+import { SecretManagerServiceClient } from '@google-cloud/secret-manager'
 
 export interface FirestoreConfig {
   projectId: string
@@ -28,14 +29,34 @@ function requireString(
   return value
 }
 
-function loadRawConfig(): Record<string, unknown> {
+function decodeBase64Json(raw: string): Record<string, unknown> {
+  const decoded = Buffer.from(raw, 'base64').toString('utf-8')
+  return JSON.parse(decoded) as Record<string, unknown>
+}
+
+async function loadFromGcpSecret(): Promise<string> {
+  const client = new SecretManagerServiceClient()
+  const [secret] = await client.accessSecretVersion({
+    name: 'CONFIG/versions/latest',
+  })
+  const payload = secret.payload?.data
+  if (!payload) {
+    throw new Error('GCP secret CONFIG has no payload')
+  }
+  return typeof payload === 'string'
+    ? payload
+    : Buffer.from(payload).toString('utf-8')
+}
+
+let cachedConfig: AppConfig | null = null
+
+async function loadRawConfig(): Promise<Record<string, unknown>> {
   const raw = process.env.CONFIG
   if (raw) {
     try {
-      const decoded = Buffer.from(raw, 'base64').toString('utf-8')
-      return JSON.parse(decoded) as Record<string, unknown>
+      return decodeBase64Json(raw)
     } catch {
-      throw new Error('CONFIG is not valid base64-encoded JSON')
+      throw new Error('CONFIG env var is not valid base64-encoded JSON')
     }
   }
 
@@ -44,15 +65,20 @@ function loadRawConfig(): Record<string, unknown> {
     const contents = fs.readFileSync(filePath, 'utf-8')
     return JSON.parse(contents) as Record<string, unknown>
   } catch {
+    // fall through to GCP Secret Manager
+  }
+
+  try {
+    const secretValue = await loadFromGcpSecret()
+    return decodeBase64Json(secretValue)
+  } catch (err) {
     throw new Error(
-      'CONFIG environment variable is not set and .secrets/config.json was not found'
+      `Config not found: CONFIG env var not set, .secrets/config.json missing, and GCP secret lookup failed (${err instanceof Error ? err.message : err})`
     )
   }
 }
 
-export function getConfig(): AppConfig {
-  const parsed = loadRawConfig()
-
+function parseConfig(parsed: Record<string, unknown>): AppConfig {
   if (parsed.firestore || parsed.notion) {
     const firestoreObj = (parsed.firestore as Record<string, unknown>) ?? {}
     const notionObj = (parsed.notion as Record<string, unknown>) ?? {}
@@ -81,4 +107,12 @@ export function getConfig(): AppConfig {
       databaseId: requireString(parsed, 'notion_database_id'),
     },
   }
+}
+
+export async function getConfig(): Promise<AppConfig> {
+  if (cachedConfig) return cachedConfig
+
+  const parsed = await loadRawConfig()
+  cachedConfig = parseConfig(parsed)
+  return cachedConfig
 }

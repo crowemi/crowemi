@@ -127,7 +127,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 border-t border-gray-200 pt-8 text-center text-sm text-gray-500">
-          <p>&copy; {new Date().getFullYear()} Crowemi. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} crowemi. All rights reserved.</p>
         </div>
       </div>
     </footer>

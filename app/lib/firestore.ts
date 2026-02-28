@@ -4,9 +4,9 @@ import { getConfig } from './config'
 
 let firestoreInstance: Firestore | null = null
 
-function getFirestore(): Firestore {
+async function getFirestoreClient(): Promise<Firestore> {
   if (!firestoreInstance) {
-    const { firestore } = getConfig()
+    const { firestore } = await getConfig()
     firestoreInstance = new Firestore({
       projectId: firestore.projectId,
       credentials: {
@@ -24,7 +24,8 @@ export async function queryDocuments<T extends Record<string, unknown>>(
   field: string,
   value: unknown
 ): Promise<Array<T & { id: string }>> {
-  const snapshot = await getFirestore()
+  const db = await getFirestoreClient()
+  const snapshot = await db
     .collection(collection)
     .where(field, '==', value)
     .get()
@@ -36,7 +37,8 @@ export async function addDocument(
   collection: string,
   data: Record<string, unknown>
 ): Promise<string> {
-  const ref = await getFirestore().collection(collection).add(data)
+  const db = await getFirestoreClient()
+  const ref = await db.collection(collection).add(data)
   return ref.id
 }
 
@@ -44,7 +46,8 @@ export async function getDocument<T extends Record<string, unknown>>(
   collection: string,
   id: string
 ): Promise<(T & { id: string }) | null> {
-  const doc = await getFirestore().collection(collection).doc(id).get()
+  const db = await getFirestoreClient()
+  const doc = await db.collection(collection).doc(id).get()
   if (!doc.exists) {
     return null
   }
@@ -57,12 +60,14 @@ export async function updateDocument(
   id: string,
   data: Record<string, unknown>
 ): Promise<void> {
-  await getFirestore().collection(collection).doc(id).update(data)
+  const db = await getFirestoreClient()
+  await db.collection(collection).doc(id).update(data)
 }
 
 export async function deleteDocument(
   collection: string,
   id: string
 ): Promise<void> {
-  await getFirestore().collection(collection).doc(id).delete()
+  const db = await getFirestoreClient()
+  await db.collection(collection).doc(id).delete()
 }
