@@ -1,4 +1,4 @@
-import { Firestore } from '@google-cloud/firestore'
+import { Firestore, serverTimestamp, doc, setDoc } from '@google-cloud/firestore'
 
 import { getConfig } from './config'
 
