@@ -6,13 +6,10 @@ let firestoreInstance: Firestore | null = null
 
 function getFirestore(): Firestore {
   if (!firestoreInstance) {
-    const { firestore } = getConfig()
+    const { gcp } = getConfig()
     firestoreInstance = new Firestore({
-      projectId: firestore.projectId,
-      credentials: {
-        client_email: firestore.clientEmail,
-        private_key: firestore.privateKey,
-      },
+      projectId: gcp.projectId,
+      databaseId: gcp.firestore.databaseId,
     })
   }
 
