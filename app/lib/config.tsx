@@ -4,14 +4,15 @@ export interface FirestoreConfig {
   privateKey: string
 }
 
-export interface AppConfig {
-  firestore: FirestoreConfig
+export interface NotionConfig {
+  secret: string
 }
 
-/**
- * Parses base64-encoded JSON config from CONFIG.
- * Expected JSON keys: project_id, client_email, private_key.
- */
+export interface AppConfig {
+  firestore: FirestoreConfig
+  notion: NotionConfig
+}
+
 export function getConfig(): AppConfig {
   const raw = process.env.CONFIG
   if (!raw) {
@@ -20,32 +21,13 @@ export function getConfig(): AppConfig {
 
   const decoded = Buffer.from(raw, 'base64').toString('utf-8')
 
-  let parsed: Record<string, unknown>
+  let config: AppConfig
   try {
-    parsed = JSON.parse(decoded)
+    config = JSON.parse(decoded)
   } catch {
     throw new Error('CONFIG is not valid base64-encoded JSON')
   }
 
-  const projectId = parsed.project_id
-  const clientEmail = parsed.client_email
-  const privateKey = parsed.private_key
-
-  if (
-    typeof projectId !== 'string' ||
-    typeof clientEmail !== 'string' ||
-    typeof privateKey !== 'string'
-  ) {
-    throw new Error(
-      'CONFIG JSON must contain project_id, client_email, and private_key as strings'
-    )
-  }
-
-  return {
-    firestore: {
-      projectId,
-      clientEmail,
-      privateKey,
-    },
-  }
+  return config
+    
 }
