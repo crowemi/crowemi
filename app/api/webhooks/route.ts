@@ -23,14 +23,14 @@ function verify(body: string, signature: string | null): boolean {
 export async function POST(request: Request) {
   try {
     const raw = await request.text();
-    const body = JSON.parse(raw);
     const signature = request.headers.get("X-Notion-Signature");
 
-    const verified = verify(body, signature);
+    const verified = verify(raw, signature);
     if (!verified) {
       return new Response("Invalid signature", { status: 401 });
     }
 
+    const body = JSON.parse(raw);
     console.log("Received webhook:", body);
     return new Response("Webhook received", { status: 200 });
   } catch (error) {
