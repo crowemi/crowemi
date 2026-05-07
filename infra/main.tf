@@ -3,11 +3,7 @@ locals {
   service = "crowemi"
   project = var.gcp_project_id
 }
-resource "google_service_account" "this" {
-  account_id   = "srv-${local.service}"
-  display_name = "srv-${local.service}-${var.env}"
-  description  = "A service account for ${local.service}"
-}
+
 
 resource "google_cloud_run_v2_service" "this" {
   provider             = google-beta
@@ -19,6 +15,15 @@ resource "google_cloud_run_v2_service" "this" {
   template {
     containers {
       image = "us-west1-docker.pkg.dev/${local.project}/${local.project}/${local.service}:${var.docker_image_tag}"
+      env {
+        name = "CONFIG"
+        value_source {
+          secret_key_ref {
+            secret  = data.google_secret_manager_secret.this.secret_id
+            version = "latest"
+          }
+        }
+      }
     }
     service_account = google_service_account.this.email
     vpc_access {
