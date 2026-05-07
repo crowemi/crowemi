@@ -2,14 +2,13 @@ import crypto from "node:crypto";
 
 import { getConfig } from "../../lib/config";
 
-const CONFIG = getConfig();
 
 function verify(body: string, signature: string | null): boolean {
   if (!signature) {
     return false;
   }
-
-  const expected = `sha256=${crypto.createHmac("sha256", CONFIG.notion.secret).update(body).digest("hex")}`
+  
+  const expected = `sha256=${crypto.createHmac("sha256", getConfig().notion.secret).update(body).digest("hex")}`
   const encoder = new TextEncoder();
   const expectedBytes = encoder.encode(expected);
   const signatureBytes = encoder.encode(signature);
